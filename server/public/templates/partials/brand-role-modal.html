@@ -1,0 +1,59 @@
+ <!-- The actual modal template, just a bit o bootstrap -->
+         <div class="modal fade" data-backdrop="static" data-keyboard="false">
+          <div class="modal-dialog">
+          <div class="col-xs-9 col-md-11 pull-md-3 workArea" data-example-id="" style="margin-top:20px">
+            <div class="modal-content">
+              <div class="modal-header" align="center">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Add Role</h4>
+              </div>
+              <div class="modal-body">
+              	
+			<form name="roleForm" ng-selected="editableFields()">	
+					<div class="form-group row">
+					  <label for="role_type" class="col-xs-3 col-form-label">Role Name</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="role.role_type" type="text" min="3" max="30" maxlength="30" title="Minimum 3 to 30 characters" required="true" ngTrim="true" required="true" name="roleName" ng-pattern="/^[a-zA-Z0-9' /-]*$/">
+					  </div>
+					    <span class='validationError' ng-show="roleForm.roleName.$touched && roleForm.roleName.$error.required">*Role name is required.
+					    </span>
+					    <span class='validationError' ng-show="roleForm.roleName.$touched && roleForm.roleName.$error.pattern">*Special characters are not allowed.
+					    </span>
+					</div>
+					<div class="form-group row">
+					  <label for="cname" class="col-xs-3 col-form-label">Feedback Reasons</label>
+					  <div class="col-xs-6" style="text-align:left;">
+					  	<table style="border-collapse: collapse;">
+						 	<tr style="" ng-repeat="reason in reasons track by $index">
+							    <td style="width: 5%; height: 60px;vertical-align: center; text-align: left;padding:5px;" >
+							    	<label class="pull-left">{{$index+1}}.&nbsp;&nbsp;</label>
+							    	<label name="feedReasons" class="pull-left">{{ reason }}&nbsp;<span class="glyphicon glyphicon-edit" aria-hidden="true"></span></label>
+									<input name="{{$index}}" class= "pull-left clickedit" type="text"/>
+									<div class="clearfix"></div>
+							    </td>
+							</tr>
+							<tr style="">
+							    <td style="width: 5%; height: 60px;vertical-align: center; text-align: left;padding:5px;" >
+							    	<label class="pull-left">{{reasons.length+1}}.&nbsp;&nbsp;</label>
+							    	<label name="feedReasons" class="pull-left">Other</label>
+							    </td>
+							</tr>
+							<tr>
+							  	<td style="width: 120px; height: 60px;vertical-align: center; text-align: left;padding:5px;">
+							  		<button type="button" ng-click="resetDefaults()" class="btn btn-default btn-list-view ">Reset Defaults</button>
+							  	</td>
+							</tr>
+						  </table>
+					  </div>
+					</div>
+					<div class="form-group row" align="center">
+					  <button type="submit" ng-click="close(role)" class="btn btn-primary" data-dismiss="modal" ng-disabled="roleForm.$invalid">Save Role</button>
+					</div>
+				</form>
+             					 
+          </div>
+        </div>
+                      </div>
+
+        </div>
+        </div>

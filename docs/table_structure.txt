@@ -1,0 +1,36 @@
+users: {
+	fullName,
+	contact,
+	email,
+	sex,
+	dob,
+	uname,
+	password,
+	imageData,
+	user_role_id,
+	onBoardingType, 	???
+	is_active,
+	is_delete,
+	location: {lat, lng},
+	appDetails: {version},
+	created_ts,
+	modified_ts
+}
+
+applause_contents: {
+	privacy_policy,
+	tnc,
+	about_us,
+	contact_us,
+	help
+}
+
+regional_settings: {
+	region_code,
+	region_name,
+	contact_no: {
+		dialing_code,
+		min_digits,
+		max_digits
+	}
+}

@@ -1,0 +1,139 @@
+<div ng-controller="empCtrl" ng-click="" style="margin-top:60px" ng-init="editEmpInit()">
+<div id="res"></div>
+		<div class="headerMessage" >
+				<div class="alert alert-success" ng-show="showSuccessAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+				     <strong>{{successTextAlert}}</strong> 
+				</div>
+				<div class="alert alert-danger" ng-show="showFailureAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+				     <strong>{{failureTextAlert}}</strong>
+				</div>
+		</div>
+
+<div class="wrapper"> 
+		<div class="">
+		<div class="col-xs-9 col-md-11 pull-md-3" data-example-id="">
+		<h3>Edit Employee</h3>
+		</div>
+		<div ng-hide="loaded" class="se-pre-con1">
+		</div>
+		<div class="col-xs-9 col-md-11 pull-md-3 workArea" data-example-id="">
+			<form name="employeeForm">
+					<div class="form-group row">
+					  <label for="fname" class="col-xs-3 col-form-label mandatory">First Name</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="emp.fullName.fname" type="text" min="3" max="40" maxlength="40" title="Minimum 3 to 40 charecters" required="true" ngTrim="true" name="fname" ng-pattern="/^[a-zA-Z0-9' ]*$/" placeholder="First name">
+					    <span class='validationError' ng-show="employeeForm.fname.$touched && employeeForm.fname.$error.required">*First name is required.
+					    </span>
+					    <span class='validationError' ng-show="employeeForm.fname.$touched && employeeForm.fname.$error.pattern">*Special characters are not allowed.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="lname" class="col-xs-3 col-form-label mandatory">Last Name</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="emp.fullName.lname" type="text" min="3" max="40" maxlength="40" title="Minimum 3 to 40 charecters" ngTrim="true" name="lname" required="true"
+					    ng-pattern="/^[a-zA-Z0-9' ]*$/" placeholder="Last name">
+					    <span class='validationError' ng-show="employeeForm.lname.$touched && employeeForm.lname.$error.pattern">*Special characters are not allowed.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="logo_img" class="col-xs-3 col-form-label">Employee Image</label>
+					  <div class="col-xs-9" style="text-align:left;">
+					  	 <label class="custom-file">
+							  <input type="file" id="fileImg" class="form-control-file  custom-file-input" title="Image file for Employee" onchange="angular.element(this).scope().getImageBinaryDataInEdit()" ng-model="emp.img" accept=".jpg,.jpeg,.png" >
+							  <span class="custom-file-control"></span>
+							  <span class="text">Image size upto 100 Kilobytes is allowed.</span>
+						</label>
+						<img id="fileEmpImg" onerror="this.src='/assets/imgpsh_smallsize.png'" alt="Employee Image" class="logo-img" >
+						<span class="validationError" ng-show="!isValidFile" >File size exceeded.</span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="empId" class="col-xs-3 col-form-label mandatory">Employee Id</label>
+					  <div class="col-xs-9">
+					    
+					  	<input class="form-control" value="" ng-model="emp.employeeId" type="text" min="3" max="60" maxlength="60"  ng-minlength="3" ng-maxlength="60" title="Minimum 3 to 60 charecters" required="true" ngTrim="true" name="empId" ng-focus="visited_empId = false" ng-blur="visited_empId = true" 
+					    ng-pattern="/^[a-zA-Z0-9]*$/" placeholder="Employee unique ID">
+
+					    <!-- <input class="form-control" value="" ng-model="emp.employeeId" type="text" min="3" max="60" maxlength="60"  ng-minlength="3" ng-maxlength="60"  ng-focus="visited_empId = false" ng-blur="visited_empId = true" 
+					    ng-pattern="/^[a-zA-Z0-9]*$/" ngTrim="true" name="empId"
+					    placeholder="Employee unique ID"> -->
+					    <span class='validationError' ng-show="employeeForm.empId.$touched && employeeForm.empId.$error.pattern">Employee Id has to alphanumeric.
+					    </span>
+					    <span class='validationError' ng-show="visited_empId && employeeForm.empId.$touched && (employeeForm.empId.$error.required || employeeForm.empId.$valid==false)">*Employee Id requires minimum 3 to 60 charecters.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="beaconId" class="col-xs-3 col-form-label">Beacon Id</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="emp.beaconId" type="text" min="3" max="60" maxlength="60"  ng-minlength="3" ng-maxlength="60" title="Minimum 3 to 60 charecters" ngTrim="true" name="beaconId"  ng-focus="visited_beaconId = false" ng-blur="visited_beaconId = true"   placeholder="Beacon unique identifier/UUID">
+					    <span class='validationError' ng-show="visited_beaconId && employeeForm.beaconId.$touched && (employeeForm.beaconId.$error.required || employeeForm.beaconId.$valid == false)">*Beacon Id requires minimum 3 to 60 charecters.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="roleId" class="col-xs-3 col-form-label mandatory">Role</label>
+					  <div class="col-xs-9" >
+					    <input list="roles_list" autocomplete="off" class="form-control" value="" name="roleName" ng-model="emp.role.role_type" type="text" min="3"  ng-minlength="3"   title="Minimum 3 characters" ngTrim="true" required="true" ng-focus="visited_roleName = false" ng-change="editRoleChange(emp.role.role_type)" ng-blur="visited_roleName = true"/>
+					    
+						<datalist id="roles_list" ng-model="selectedRole">
+							<option ng-repeat="role in lists.rolesList">{{role.role_type}}</option>
+						</datalist>
+					     <span class='validationError' ng-show="visited_roleName && employeeForm.roleName && (employeeForm.roleName.required || employeeForm.roleName.$valid == false)">*Role requires minimum 3  charecters.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="dept" class="col-xs-3 col-form-label">Department</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="emp.department" type="text" min="3" max="40" maxlength="40" title="Minimum 3 to 40 charecters" ngTrim="true" name="dept"
+					    ng-pattern="/^[a-zA-Z0-9 /]*$/" placeholder="Department/Work unit">
+					    <span class='validationError' ng-show="employeeForm.dept.$touched && employeeForm.dept.$error.pattern">*Enter alphanumeric text
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row" ng-if="rootBrand.empPersonlizationPrefix">
+					  <label for="empPref" class="col-xs-3 col-form-label" ng-value="">{{rootBrand.empPersonlizationPrefix}}</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="emp.prefix.value" type="text" min="3" max="40" maxlength="40" title="Minimum 3 to 40 charecters" ngTrim="true" name="empPref"
+					     placeholder="Personalized value/text">
+					    <!-- <span class='validationError' ng-show="employeeForm.empPref.$touched && employeeForm.empPref.$error.pattern">*Enter alphanumeric text
+					    </span> -->
+					  </div>
+					</div>
+					<div class="form-group row" ng-if="!rootBrand.empPersonlizationPrefix">
+					  <label for="empPref" class="col-xs-3 col-form-label" ng-value="">
+					  Personalization Prefix<br>(not defined)
+					  </label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" type="text" min="3" max="40" maxlength="40" title="Minimum 3 to 40 charecters" ngTrim="true" name="empPref"
+					    ng-pattern="/^[a-zA-Z0-9]*$/" placeholder="Personalized value/text" readonly="true">
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="sdate" class="col-xs-3 col-form-label">Start Date</label>
+					  <div class="col-xs-9">
+					  	<input type="text" class="form-control" name="sdate" value="" ng-model="emp.startDt | date:'MM/dd/yyyy'	" id='datetimepicker4' placeholder="MM/DD/YYYY" title="Start date of employee" ngTrim="true" style='float:left;' ng-pattern="/^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/" ng-change=""/>
+					  	<span class="glyphicon glyphicon-calendar" aria-hidden="true" ng-click = "datePickerIconClicked()"  style="color:#a94442;cursor: pointer;font-size:1.3em;"></span>
+					  	<!-- position: absolute;right: 18px;top: 8px; -->
+					    <span class='validationError' ng-click="" ng-show="employeeForm.sdate.$touched && employeeForm.sdate.$error.pattern">*please enter valid date format.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					<br>
+					  <button type="button" class="btn btn-default btn-list-view  pull-right" ng-disabled="employeeForm.$invalid || employeeForm.$pristine" ng-click="updateEmployee(emp)">Update</button>
+					  <button type="submit" class="btn btn-default btn-list-view  pull-right" style="margin-right:5px"
+				 	  ng-click="showCancelModal()">Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>	
+	</div>
+</div>
+
+</div>

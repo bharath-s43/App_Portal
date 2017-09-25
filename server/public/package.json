@@ -1,0 +1,19 @@
+{
+  "name": "Applause",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-cookies": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-ui-grid": "^3.2.9",
+    "angular-xeditable": "^0.2.0",
+    "http-server": ""
+  },
+  "repository": {
+    "git": "https://hub.jazz.net/git/dfdfdfdf"
+  },
+  "engines": {
+    "node": "0.12.x"
+  }
+}

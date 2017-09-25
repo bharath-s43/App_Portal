@@ -1,0 +1,143 @@
+<!-- <header ng-controller="indexCtrl" style="z-index: 9999;">	
+	<div style="display: flex;" align="left">
+	<div class="frame" align="left">
+		<img src="assets/applause_logo.png" style="" align="left">
+	</div>
+		<div style="width: 98%" align="right">
+
+			<h5 align="right" style="padding-right:10px;" ng-if="name" >Hello, {{ name 	}}
+			</h5>
+			<h6 align="right" style="padding-right:10px;" ng-if="role">
+				{Applause {{ role }}}
+			</h6>
+			<a href="" ng-click="logout()" style="float:right; padding-right:10px;" ng-if="name">Logout</a>
+		</div>
+		</div>
+</header> -->
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;background: #2fca91; position: fixed; width: inherit;">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#/dashboard" style="padding: 0px;">
+        <div class="row">
+        <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3" style="margin-top:7px; margin-left:7px">
+        <img src="assets/applause_logo2.png" class="img-responsive "  align=""/>
+        </div>
+        </div>
+        </a>
+    </div>
+    <!-- /.navbar-header -->
+    <ul class="nav navbar-top-links navbar-right" ng-show="!isBypassedForSetPassword">
+        <!-- /.dropdown class="dropdown-toggle"-->
+
+        <li style=" cursor: default; color: white; vertical-align: middle" > Logged in as {{name}} </li>
+        <li class="dropdown-header">
+            <div  data-toggle="dropdown" href="">
+                <i class="" style="font-size: xx-large;"></i><i
+                 class="fa fa-angle-down" style="color:white"></i>
+            </div>
+            <ul class="dropdown-menu dropdown-user">
+                <!-- <li><a href=""><b>{{name}}</b></a></li>
+                <li class="divider"></li> -->
+            	<!-- <li><a href=""><i class="fa fa-cog fa-fw"></i> {{ role }}</a>
+                </li> -->
+                <li><a href="#/userProfile"><i  style="color: white" class="fa fa-user fa-fw"></i> User Profile</a>
+                </li>
+                <!-- <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                </li> -->
+                <li class="divider"></li>
+                <li><a href="" ng-click="logout()"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                </li>
+            </ul>
+            <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
+    </ul>
+    <!-- /.navbar-top-links -->
+
+    <!-- /.sidebar-collapse -->
+
+
+      <div class="navbar-default sidebar" role="navigation" ng-show="!isBypassedForSetPassword" >
+        <div class="sidebar-nav navbar-collapse" style="background-color: #eeeeee !important; padding-bottom: 8%;border-bottom: solid 1px #979797;">
+            <div class="row" style="margin-left:2px; ">
+                <div class="col-xs-5 col-md-5 col-lg-12" class="navtextleft">
+                Customer:
+                </div>
+            </div>
+            <div class="row" style="margin-left:2px;">    
+                <div class="col-xs-12  col-sm-12  col-md-12 col-lg-12" >
+                <select id="custDropDown" class="navselect" ng-model="rootCustomer" ng-options="x.name for x in customersList track by x.id" ng-selected="editableFields()" ng-change="getBrands(rootCustomer)" ng-disabled="{{custDropdownDisable}}">
+                            <option value="" selected="true">--ALL--</option>
+                        </select>
+                </div>
+            </div>
+
+            <div class="row" style="margin-left:2px;">
+                <div class="col-xs-5 col-lg-12" class="navtextleft">   
+                Brand:
+                </div>
+            </div>
+            <div class="row" style="margin-left:2px;">
+                <div class="col-xs-12 col-sm-12 col-lg-12" >   
+                <select class="navselect" ng-model="rootBrand" ng-options="x.name for x in brandsList track by x.id" ng-selected="editableFields()" ng-change="getLocations(rootBrand)" ng-disabled="{{brandDropdownDisable}}">
+                            <option value="" selected="true">--ALL--</option>
+                        </select>
+                </div>
+            </div> 
+
+            <div class="row" style="margin-left:2px; ">
+                <div class="col-xs-5 col-lg-12" class="navtextleft">   
+                Location:
+                </div>
+            </div>
+            <div class="row" style="margin-left:2px;">    
+                <div class="col-xs-7 col-sm-12 col-lg-12" >   
+                <select class="navselect" ng-model="rootLocation" ng-options="x.lname for x in locationsList track by x.id" ng-selected="editableFields()" ng-change="setRootLocation(rootLocation)" ng-disabled={{locDropdownDisable}}>
+                            <option value="" selected="true">--ALL--</option>
+                        </select>
+                </div>
+            </div>         
+        </div>      
+     <!--    <div style="background-color: #eeeeee !important;">
+                <center>
+                       <hr noshade>
+                </center>
+        </div> -->
+        <div class="sidebar-nav navbar-collapse" style="min-height: 1000px;  background-color: #eeeeee !important;">
+            <ul id="navOp" class="nav in" id="side-menu" style="background-color: #eee">
+                 <li id="navOp">
+                    <a href="" ng-click="" class="active" style="color:#333;">Dashboard</span>
+                    </a>
+                </li>
+                <li id="navOp" ng-repeat="x in navOptions track by $index" 
+                ng-init="rowIndex = $index" ng-if="userAccess[x.option].visible" >
+                    <!-- <a ng-if="x.option === 'Customers'"  ng-class="alternativeSelection" href="" ng-click="traverse(x.subOptions[0].path, $index)"
+                       class="active "  style="color:#000; ">{{ x.option }}</span></a>                    
+                    <a ng-if="x.option !== 'Customers'" href="" ng-click="traverse(x.subOptions[0].path, $index)"
+                       class="active"  style="color:#000; ">{{ x.option }}</span></a> -->
+                    <a href="" ng-class="{{x.ngClass}}" ng-click="traverse(x.option, x.subOptions[0].path, $index, null)"
+                        style="color:#000; ">{{ x.option }}</span></a>
+
+                </li>
+            </ul>
+        </div>
+
+        
+        
+    </div>
+
+</nav>
+
+ </div>
+</div>
+  

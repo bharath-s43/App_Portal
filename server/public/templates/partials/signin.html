@@ -1,0 +1,55 @@
+<div ng-controller="signInCtrl">
+	<div class="container">
+	  <form name="signInForm">
+	    <br>
+	    <div class="container" align="center"	style="display: inline">
+		    <div align="center" class="container">
+		    	<div class="alert alert-success" ng-show="showSuccessAlert" style="width:40%;">
+				     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+				     <strong>{{successTextAlert}}</strong> 
+				</div>
+				<div class="alert alert-danger" ng-show="showFailureAlert" style="width:40%;">
+				     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+				     <strong>{{failureTextAlert}}</strong> 
+				</div>
+				<div class ="row">
+						<div class="col-xs-4"> </div>
+						<div class="col-xs-3">
+						    <input type="email" placeholder="Email" maxlength="30" pattern=".{6,30}" ng-model="user.email" style="width:100%;" required title="minimum 6 and maximum 30 characters allowed"
+						    name="email">
+					    </div>
+				    	<div class="col-xs-3">
+				    	<span class='validationError' ng-show="signInForm.email.$touched && signInForm.email.$error.required">*Eamil is required.
+					    </span>
+					    <span class='validationError' ng-show="signInForm.email.$touched && signInForm.email.$error.email">*Please enter valid email.
+					    </span>
+					    </div>
+			    </div>
+				    <br>
+				<div class ="row">
+					<div class="col-xs-4"> </div>
+					<div class="col-xs-3">
+				    <input type="password" placeholder="Password" maxlength="8" pattern=".{3,8}" ng-model="user.password" style="width:100%;" title="minimum 3 and maximum 8 characters allowed"
+				    name="password" required="true">
+				    </div>
+				   		<span class='validationError' ng-show="signInForm.password.$touched && signInForm.password.$error.required">*Password is required.
+					    </span>
+					    <span class='validationError' ng-show="signInForm.password.$touched && signInForm.password.$error.pattern">*Minimum 3 and maximum 8 characters allowed.
+					    </span>
+			    </div>
+			    <br>
+			   	 <div class="row">
+			   	 	<div class="col-xs-5"></div>
+			   	 	<div class="col-xs-2">
+				    	<button style="float:right;" type="submit" class="btn btn-default" 
+				    	ng-click="login(user)"
+				    		ng-disabled="signInForm.$invalid">Login</button>
+		    		</div>
+			    </div>
+		    </div>
+		    
+	   	</div>
+	  </form>
+	</div>
+</div>
+	

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Applause</title>
+
+    <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- Our Website CSS Styles -->
+    <link rel="stylesheet" href="css/metisMenu.min.css">
+    
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/custom.css">
+
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body ng-app="applauseWebApp" ng-controller="signInCtrl">
+    <div ng-if="false" class="se-pre-con">
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" name="loginForm">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="email" type="email" maxlength="30" pattern=".{6,30}" ng-model="user.email" ng-focus="incorrectPwd=false" autofocus required>
+                                    <span class='validationError' ng-show="signInForm.email.$touched && signInForm.email.$error.required">*Eamil is required.
+                                    </span>
+                                    <span class='validationError' ng-show="signInForm.email.$touched && signInForm.email.$error.email">*Please enter valid email.
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" minlength="3" ng-model="user.password" required value="" ng-focus="incorrectPwd=false">
+                                    <span class='validationError' ng-show="signInForm.password.$touched && signInForm.password.$error.required">*Password is required.
+                                    </span>
+                                    <span class='validationError' ng-show="signInForm.password.$touched && signInForm.password.$error.pattern">*Minimum 3 characters allowed.
+                                    </span>
+                                </div>
+                                <!-- <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div> -->
+                                <!-- Change this to a button or input when using this as a form -->
+                                <a href="#" ng-click="login(user)" class="btn btn-lg btn-success btn-block" ng-disabled="loginForm.$invalid">Login</a>
+                                <span class='validationError' ng-show="incorrectPwd">{{incorrectMessage}}
+                                </span>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+   <script src="js/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/custom.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/angular-cookies/angular-cookies.min.js"></script>
+    <script src="node_modules/angular-ui-grid/ui-grid.min.js"></script>
+    <script src="js/angular-modal-service.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-touch.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+
+    <!-- Our Website Javascripts -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

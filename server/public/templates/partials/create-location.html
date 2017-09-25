@@ -1,0 +1,172 @@
+<div ng-controller="locCtrl" ng-click="" ng-init="populateCustomersDropdown()" style="margin-top:60px">
+<div id="res"></div>
+
+<div class="headerMessage">
+		<div class="alert alert-warning" ng-show="showMessageAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showMessageAlert')">×</button> 
+		     <strong>{{messageTextAlert}}</strong> 
+		</div>
+		<div class="alert alert-success" ng-show="showSuccessAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+		     <strong>{{successTextAlert}}</strong> 
+		</div>
+		<div class="alert alert-danger" ng-show="showFailureAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+		     <strong>{{failureTextAlert}}</strong>
+		</div>
+</div>
+
+	
+<div class="wrapper">
+	<div class="">
+		<div class="col-xs-9 col-md-11 pull-md-3" data-example-id="" >
+			<h3>Create Location</h3>
+		</div>
+		<div ng-hide="loaded" class="se-pre-con1">
+		</div>
+		<div class="col-xs-9 col-md-11 pull-md-3 workArea" data-example-id="" style="margin-top:60px">
+			<form name="locationForm">
+				<div ng-show="rootBrand.id && rootCustomer.id">
+					<div class="form-group row">
+					  <label for="lname" class="col-xs-3 col-form-label mandatory">Location Name</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="location.name" type="text" ng-minlength="3" ng-maxlength="80" title="Minimum 3 to 80 charecters" required="true" ngTrim="true" name="lname" ng-focus="visited_lname = false" ng-blur="visited_lname = true"
+					     ng-pattern="/^[a-zA-Z0-9'&,. /-]*$/" placeholder="Location name">
+					    <span class='validationError' ng-show="visited_lname && locationForm.lname.$touched && (locationForm.lname.$error.required || locationForm.lname.$valid==false)">*Location name requires 3 to 80 charecters.
+					    </span>
+					    <span class='validationError' ng-show="locationForm.lname.$touched && locationForm.lname.$error.pattern">*Special characters are not allowed.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="laddress" class="col-xs-3 col-form-label mandatory">Address</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="location.add" type="text" ng-minlength="3" ng-maxlength="200" ng-focus="visited_laddress = false" ng-blur="visited_laddress = true" title="Minimum 3 to 200 charecters" required="true" ngTrim="true"
+					    name="laddress" placeholder="Location address">
+					    <span class='validationError' ng-show="visited_laddress && locationForm.laddress.$touched && (locationForm.laddress.$error.required || locationForm.laddress.$valid==false)">*Location address requires 3 to 200 charecters.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="limage" class="col-xs-3 col-form-label">Image</label>
+					  <div class="col-xs-9" style="text-align:left;">
+					  	 <label class="custom-file">
+							  <input type="file" id="locImg" class="form-control-file  custom-file-input" title="Image file for Location" onchange="angular.element(this).scope().getImageBinaryData()"  accept=".jpg,.jpeg,.png" >
+							  <span class="custom-file-control"></span>
+							  <span class="text">Image size upto 300 Kilobytes is allowed.</span>
+						</label>
+						<img id="fileLocImg" src="#" alt="Location Image" ng-src="/assets/brand_default1.png" class="logo-img" />
+						<span class="validationError" ng-show="!isValidFile" >File size exceeded.</span>
+					  </div>
+					</div>
+					<br>
+
+					<div class="form-group row">
+					  <label for="lcoordinates" class="col-xs-3 col-form-label">GPS Coordinates</label>
+					  <div class="col-xs-3" align="center">
+					  	 <label class="col-form-label" ng-class="gpsMandatoryClass">Latitude</label>
+					  	 <div class="">
+					  	 	<input class="form-control" name="latitude" value="" ng-keydown="latLongBlurCreate()" ng-blur="latLongBlurCreate()" ng-required="latRequired" ng-model="location.lat"  type="text" ngTrim="true"  number-mask="">
+					  	 </div>
+					  </div>
+					  <div class="col-xs-3" align="center">
+					  	 <label class="col-form-label" ng-class="gpsMandatoryClass">Longitude</label>
+					  	 <div class="">
+					  	 	<input class="form-control" name="longitude" value="" ng-keydown="latLongBlurCreate()" ng-blur="latLongBlurCreate()" ng-required="longRequired" ng-model="location.lng" type="text" number-mask=""  ngTrim="true">
+					  	 </div>
+					  </div>
+					</div>
+
+					<div class="form-group row">
+					  <label for="lradius" class="col-xs-3 col-form-label">Interaction Radius (meters)</label>
+					  <div class="col-xs-9">
+					    
+					   <input id="locrad" class="form-control" value="" ng-model="location.interactionRadius" type="number" ngTrim="true" min="0" number-mask="" name="lradius">
+					  </div>
+					</div>
+
+					<div class="form-group row">
+					  <div class="col-xs-1"> </div>
+					  <label for="details" class="col-xs-3 col-form-label" style="text-align:left;width:auto;padding-left:4%;">Primary Contact Details</label>
+					</div>
+
+					<div class="form-group row">
+					  <label for="pname" class="col-xs-3 col-form-label" ng-class="location.primaryContact.email ? 'mandatory' : ''">Name</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="location.primaryContact.name" type="text"
+					    ngTrim="true" name="pname" maxlength="80" ng-pattern="/^[a-zA-Z0-9' ]*$/" placeholder="Location primary contact's name" ng-required="location.primaryContact.email">
+					    <span class='validationError' ng-show="locationForm.pname.$touched && locationForm.pname.$error.pattern">*Special characters are not allowed.
+					    </span>
+					  </div>
+					</div>
+
+					<div class="form-group row">
+					  <label for="pemail" class="col-xs-3 col-form-label">Email</label>
+					  <div class="col-xs-9">
+
+					    <input class="form-control" value="" ng-model="location.primaryContact.email" type="email"
+					    ngTrim="true" name="pemail" ng-focus="visited_pemail = false" ng-blur="visited_pemail = true" ng-pattern="/^[a-zA-Z]*[a-zA-Z0-9._]+@[a-zA-Z]+\.[a-zA-Z.]{2,5}$/" placeholder="Location primary contact's email address">
+					    <span class='validationError' ng-show="visited_pemail && locationForm.pemail.$touched && (locationForm.pemail.$error.email || locationForm.pemail.$error.pattern)">*Please enter a valid email.
+					    </span>
+					  </div>
+					</div>
+
+					<div class="form-group row">
+					  <label for="pcontact" class="col-xs-3 col-form-label">Phone Number</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="location.primaryContact.contactNo" type="text"
+					    ngTrim="true" name="pcontact"
+					    ng-pattern="/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/" placeholder="(xxx) xxx-xxxx OR xxx-xxx-xxxx OR xxxxxxxxxx (10 digits)">
+					    <span class='validationError' ng-show="locationForm.pcontact.$touched && locationForm.pcontact.$error.pattern">*Enter a valid phone number.
+					    </span>
+					  </div>
+					</div>
+
+					<div class="form-group row">
+					  <div class="col-xs-1"> </div>
+					  <label for="admindetails" class="col-xs-3 col-form-label" style="text-align:left;width:auto;padding-left:4%;">Admin Contact Details</label>
+					</div>
+
+					<div class="form-group row">
+					  <label for="aname" class="col-xs-3 col-form-label" ng-class="location.adminContact.email ? 'mandatory' : ''">Name</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="location.adminContact.name" type="text"
+					    ngTrim="true" name="aname" maxlength="80" ng-focus="visited_cname = false" ng-blur="visited_cname = true" ng-pattern="/^[a-zA-Z0-9' ]*$/" placeholder="Location administrator's name" ng-required="location.adminContact.email">
+					    <span class='validationError' ng-show="locationForm.aname.$touched && locationForm.aname.$error.pattern">Special characters are not allowed.
+					    </span>
+					  </div>
+					</div>
+
+					<div class="form-group row">
+					  <label for="aemail" class="col-xs-3 col-form-label">Email</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="location.adminContact.email" type="email"
+					    ngTrim="true" name="aemail" ng-focus="visited_aemail = false" ng-blur="visited_aemail = true" ng-pattern="/^[a-zA-Z]*[a-zA-Z0-9._]+@[a-zA-Z]+\.[a-zA-Z.]{2,5}$/" placeholder="Location administrator's email address">
+					    <span class='validationError' ng-show="visited_aemail && locationForm.aemail.$touched && (locationForm.aemail.$error.email || locationForm.aemail.$error.pattern)">*Please enter a valid email.
+					    </span>
+					  </div>
+					</div>
+
+					<div class="form-group row">
+					  <label for="acontact" class="col-xs-3 col-form-label">Phone Number</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="location.adminContact.contactNo" type="text"
+					    ngTrim="true" name="acontact" ng-pattern="/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/" placeholder="(xxx) xxx-xxxx OR xxx-xxx-xxxx OR xxxxxxxxxx (10 digits)">
+					    <span class='validationError' ng-show="locationForm.acontact.$touched && locationForm.acontact.$error.pattern">*Enter a valid number.
+					    </span>
+					  </div>
+					</div>
+
+					<div class="form-group row">
+					<br>
+					  <button type="submit" class="btn btn-default btn-list-view  pull-right" ng-disabled="locationForm.$invalid" ng-click="submitLocation(location)">Save</button>
+					  <button type="submit" id="cancelModal" class="btn btn-default btn-list-view  pull-right" style="margin-right:5px"
+				 ng-click="showCancelModal()">Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+</div>

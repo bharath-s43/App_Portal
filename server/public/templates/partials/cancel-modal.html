@@ -1,0 +1,17 @@
+<div class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" align="center">
+        <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">{{modalOptions.headerText}}</h4>
+      </div>
+      <div class="modal-body">
+		  <p>{{modalOptions.bodyText}}</p>
+	  </div>
+	  <div class="modal-footer">
+		  <button type="submit" class="btn btn-default btn-list-view " data-dismiss="modal" ng-click="close('Cancel')">{{modalOptions.closeButtonText}}</button>
+		  <button type="submit" class="btn btn-default btn-list-view " data-dismiss="modal" ng-click="close('YES');">{{modalOptions.actionButtonText}}</button>
+	  </div>
+  	</div>
+  </div>
+</div>

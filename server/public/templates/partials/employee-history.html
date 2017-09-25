@@ -1,0 +1,94 @@
+<div ng-controller="empCtrl" ng-click="" style="margin-top:60px">
+<div id="res"></div>
+
+		<div class="headerMessage" >
+				<div class="alert alert-success" ng-show="showSuccessAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+				     <strong>{{successTextAlert}}</strong> 
+				</div>
+				<div class="alert alert-danger" ng-show="showFailureAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+				     <strong>{{failureTextAlert}}</strong>
+				</div>
+		</div>
+<div class="wrapper"> 
+		<div class="">
+		<!-- <div class="alert alert-success" ng-show="showSuccessAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+		     <strong>{{successTextAlert}}</strong> 
+		</div>
+		<div class="alert alert-danger" ng-show="showFailureAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+		     <strong>{{failureTextAlert}}</strong>
+		</div>
+ -->
+		<div class="col-xs-9 col-md-11 pull-md-3 workArea" data-example-id="" style="margin-top:60px">
+			<form name="empForm">	
+				<!-- <div class="form-group row">
+				  <label for="custId" class="col-xs-3 col-form-label">Customer</label>
+				  <div class="col-xs-9">
+				    <select id="custSelect" class="form-control" ng-model="emp.custId" ng-options="x.name for x in lists.customersList track by x.id" ng-change="getBrands(emp.custId)" required="true">
+				    	<option value="" selected="true" style="display:none;">-- SELECT --</option>
+				    </select>
+				  </div>
+				</div>
+				<div class="form-group row">
+					<label for="brandId" class="col-xs-3 col-form-label">Brand</label>
+				  	<div class="col-xs-9">
+				    <select id="brandSelect" class="form-control" ng-model="emp.brandId" ng-options="x.name for x in lists.brandsList track by x.id" ng-change="getLocations(emp.brandId)" required="true">
+				    	<option value="" selected="true" style="display:none;">-- SELECT --</option>
+				    </select>
+				  </div>
+				</div>
+				<div class="form-group row">
+					<label for="locId" class="col-xs-3 col-form-label">Location</label>
+				  	<div class="col-xs-9">
+				    <select id="locSelect" class="form-control" ng-model="emp.locId" ng-options="x.lname for x in lists.locationsList track by x.id" ng-change="">
+				    	<option value="" selected="true">-- ALL --</option>
+				    </select>
+				  </div>
+				</div> -->
+				<div class="form-group row">
+				  <label for="emp.searchParam" class="col-xs-3 col-form-label">Employee</label>
+				  <div class="col-xs-9">
+				    <input class="form-control" value="" ng-model="emp.searchParams" type="text" min="1" max="30" maxlength="30" title="Maximum 30 characters" ngTrim="true" placeholder="Enter Employee Name, Employee ID or Beacon ID (last four digits)">
+				  </div>
+				</div>
+				<div class="form-group row">
+					<br>
+					  <button type="submit" class="btn btn-default btn-list-view  pull-right" ng-disabled="!rootCustomer || !rootBrand" ng-show="lists.showSearchBtn" ng-click="searchEmployees(emp)">Search</button>
+					  <button type="submit" class="btn btn-default btn-list-view  pull-right" style="margin-right:5px"
+				 ng-click="reloadPage()">Cancel</button>
+				</div>
+				<div ng-show="lists.searchResults">
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover">
+						  <thead>
+						    <tr style="background-color:grey;">
+						      <th style="text-align:center;">Name</th>
+						      <th style="text-align:center;">Employee Id</th>
+						      <th style="text-align:center;">Brand</th>
+						      <th style="text-align:center;">Location</th>
+						      <th style="text-align:center;">Beacon</th>
+						      <th style="text-align:center;">History</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr ng-repeat="res in lists.empSearchResults track by $index">
+						      <td>{{res.fullName.full}}</td>
+						      <td>{{res.employeeId}}</td>
+						      <td>{{res.brandId.name}}</td>
+						      <td>{{res.locationId.lname}}</td>
+						      <td>{{res.beaconId ? res.beaconId : "Not Paired"}}</td>
+						      <td><label align="left" ng-click="showEmployeeHistory(this, $index)"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="color:#428bca;cursor: pointer;font-size:1.3em;"></span></label></td>
+						    </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</form>
+		</div>	
+	</div>
+</div>
+
+</div>

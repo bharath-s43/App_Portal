@@ -1,0 +1,69 @@
+<div ng-controller="beaconCtrl" ng-click="" ng-init="intiBulk()" style="margin-top:60px">
+<div id="res"></div>
+
+	<div class="headerMessage" >
+				<div class="alert alert-warning" ng-show="showMessageAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showMessageAlert')">×</button> 
+				     <strong>{{messageTextAlert}}</strong> 
+				</div>
+				<div class="alert alert-success" ng-show="showSuccessAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+				     <strong>{{successTextAlert}}</strong> 
+				</div>
+				<div class="alert alert-danger" ng-show="showFailureAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+				     <strong>{{failureTextAlert}}</strong>
+				</div>
+	</div>
+<div class="wrapper"> 
+		<div class="">
+		<div class="col-xs-9 col-md-11 pull-md-3" data-example-id="">
+		<h3>Unpair Beacons Bulk</h3>
+		</div>	
+
+		<div ng-show="rootLocation.id" class="col-xs-9 col-md-11 pull-md-3 workArea" data-example-id="">
+			<form name="beaconForm">	
+				<div >
+					<div class="form-group row">
+					  <label for="logo_img" class="col-xs-3 col-form-label">Bulk Upload</label>
+					  <div class="col-xs-9"  style="text-align:left;">
+					  	<label class="custom-file">
+							<input type="file" id="beaconCSV" class="form-control-file  custom-file-input pull-left" title="CSV File for Beacon Assignment" onchange="angular.element(this).scope().getFileBinaryData('unassign');">
+							<span class="custom-file-control"></span>
+						</label>
+						<a target="_self" ng-href="{{template_unpair_link}}" class="btn-sm btn-default btn-list-view  pull-right">
+						Download Template
+						</a>
+					  </div>
+					</div>
+					<div class="form-group row" style="text-align:left;padding-left:3%;">
+
+						<div id="u42" class="text">
+						   <p class="text"><span>Usage:</span></p>
+						   <p><span>&nbsp;</span></p>
+						   <p><span>Please upload the file in a given format.</span></p>
+						   <p><span>Column A: BeaconID</span></p>
+						   <p><span>&nbsp;</span></p>
+						</div>
+
+					</div>
+					<div class="form-group row">
+					<br>
+					  <button type="submit" class="btn btn-default btn-list-view  pull-right" ng-disabled="brandForm.$invalid" ng-click="postUnAssignDetails('unpair')">Save</button>
+					</div>
+					<div id="postErrors" class="form-group row alert alert-warning" style="text-align:left" ng-if="errorsUnassign.length">
+						<label class="col-form-label">Warnings: </label>
+						<div class="form-group row" ng-repeat="errors in errorsUnassign">
+							<label for="beaconsUnAssign" class="col-xs-3 col-form-label">line {{errors.lineNo}}</label>
+						  	<div class="col-xs-9">
+						    	<label ng-repeat="z in errors.errors">{{z}}</label>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>	
+	</div>
+</div>
+
+</div>

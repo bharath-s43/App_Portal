@@ -1,0 +1,342 @@
+<div ng-controller="brandCtrl" ng-click="" ng-init="populateCustomersDropdown()" style="margin-top:60px">
+<div id="res"></div>
+
+<div class="headerMessage">
+		<div class="alert alert-warning" ng-show="showMessageAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showMessageAlert')">×</button> 
+		     <strong>{{messageTextAlert}}</strong> 
+		</div>
+
+		<div class="alert alert-success" ng-show="showSuccessAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+		     <strong>{{successTextAlert}}</strong> 
+		</div>
+		<div class="alert alert-danger" ng-show="showFailureAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+		     <strong>{{failureTextAlert}}</strong>
+		</div>
+</div>
+
+<div class="wrapper">
+	<div class="">
+		<!-- <div class="alert alert-success" ng-show="showSuccessAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button>
+		     <strong>{{successTextAlert}}</strong>
+		</div>
+		<div class="alert alert-danger" ng-show="showFailureAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button>
+		     <strong>{{failureTextAlert}}</strong>
+		</div>
+ -->
+ 		<div class="col-xs-9 col-md-11 pull-md-3" data-example-id="" >
+			<h3 ng-if="!brand.isEditBrand">Create Brand</h3>
+			<h3 ng-if="brand.isEditBrand">Edit Brand</h3>
+		</div>
+		<div ng-hide="loaded" class="se-pre-con1">
+		</div>
+
+		<div class="col-xs-9 col-md-11 pull-md-3 workArea" data-example-id="" >
+			<form name="brandForm" novalidate>
+<!-- 				<div class="form-group row"  ng-show="!brand.isEditBrand">
+				  <label for="custId" class="col-xs-3 col-lg-3 col-form-label" >Customer</label>
+				  <div class="col-xs-9 col-lg-9">
+				    <select class="form-control" ng-model="brand.custId" ng-options="x.name for x in customersList track by x.id" ng-selected="editableFields()" ng-change="getBrands(brand.custId)">
+				    	<option value="" style="display: none;" selected="true">-- SELECT --</option>
+				    </select>
+				  </div>
+				</div> -->
+
+				<div ng-if="(!brand.isEditBrand && rootCustomer.id) || (brand.isEditBrand && brand.brandId)">
+					<div class="form-group row">
+					  <label for="bname" class="col-xs-3 col-lg-3 col-form-label mandatory">Brand Name</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="brand.name" type="text" ng-minlength="3" ng-maxlength="80" title="Minimum 3 to 80 characters" required="true" ngTrim="true" name="bname" placeholder="Brand name" ng-focus="visited_bname = false" ng-blur="visited_bname = true" ng-pattern="/^[a-zA-Z0-9'&,. /-]*$/">
+					    <span class='validationError' ng-show="visited_bname && brandForm.bname.$touched && (brandForm.bname.$error.required || brandForm.bname.$valid==false)">*Brand name required 3 to 80 characters.
+					    </span>
+					    <span class='validationError' ng-show="brandForm.bname.$touched && brandForm.bname.$error.pattern">*Special characters are not allowed.
+				   		</span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="logo_img" class="col-xs-3 col-lg-3 col-form-label">Logo Image</label>
+					  <div class="col-xs-9" style="text-align:left;">
+					  	 <label class="custom-file">
+							  <input type="file" id="fileLogo" class="form-control-file  custom-file-input" title="Image file for Brand Logo" onchange="angular.element(this).scope().getImageBinaryData()" ng-model="img" accept=".jpg,.jpeg,.png" >
+							  <span class="custom-file-control"></span>
+							  <span class="text">Image size upto 300 Kilobytes is allowed.</span>
+						</label>
+						<img id="fileLogoImg" alt="Brand Image" ng-src="{{previousImg}}" 
+						onerror="this.src='/assets/brand_default1.png'" class="logo-img" />
+						<span class="validationError" ng-show="!isValidFile" >File size exceeded.</span>
+					  </div>
+
+					</div>
+					<div class="form-group row">
+					  <label for="brand.bckColor" class="col-xs-3 col-lg-3 col-form-label">Primary Color (Background)</label>
+					  <div class="col-xs-2" align="center">
+					  	 <label class="col-form-label">Red</label>
+					  	 <div class="">
+					  	 	<input id="br" maxlength="3" class="form-control" value="" ng-model="brand.bckColor.r" type="number" ng-change="bgInputChanged()" ngTrim="true" min="0" max="255" number-mask="" name="br">
+					  	 </div>
+					  </div>
+					  <div class="col-xs-2" align="center">
+					  	 <label class="col-form-label">Green</label>
+					  	 <div class="">
+					  	 	<input id="bg" maxlength="3" class="form-control" value="" ng-model="brand.bckColor.g" type="number" ng-change="bgInputChanged()" ngTrim="true"  min="0" max="255" number-mask="" name="bg">
+					  	 </div>
+					  </div>
+					  <div class="col-xs-2" align="center">
+					  	 <label class="col-form-label">Blue</label>
+					  	 <div class="">
+					  	 	<input id="bb" maxlength="3" class="form-control" value="" ng-model="brand.bckColor.b" ng-change="bgInputChanged()" type="number" ngTrim="true" min="0" max="255" number-mask="">
+					  	 </div>
+					  </div>
+					  <div class="col-xs-2" align="center">
+					  	 <label class="col-form-label">Alpha</label>
+					  	 <div class="">
+					  	 	<input id="ba" maxlength="3" class="form-control" value="" ng-model="brand.bckColor.a" ng-change="baChanged()" type="text" ngTrim="true"  number-mask="" step="0.1" min="0" max="1">
+					  	 </div>
+					  </div>
+					  <div class="col-xs-1" ng-show="testPallet()">
+					  	<label class="col-form-label">Palette</label>
+					  	 	<input type="color" ng-model="brand.bcolor" id="bckColor" class="form-control">
+					  </div>
+					</div>
+					<br>
+					<div class="form-group row">
+					  <label for="brand.fntColor" class="col-xs-3 col-form-label">Secondary Color (Fonts)</label>
+					  <div class="col-xs-2" align="center">
+					  	 <label class="col-form-label">Red</label>
+					  	 <div class="">
+					  	 	<input id="fr" maxlength="3" class="form-control" value="" ng-model="brand.fntColor.r" ng-change="fntInputChanged()" type="number" ngTrim="true" min="0" max="255" number-mask="">
+					  	 </div>
+					  </div>
+					  <div class="col-xs-2" align="center">
+					  	 <label class="col-form-label">Green</label>
+					  	 <div class="">
+					  	 	<input id="fg" maxlength="3" class="form-control" value="" ng-model="brand.fntColor.g" ng-change="fntInputChanged()" type="number" ngTrim="true" min="0" max="255" number-mask="">
+					  	 </div>
+					  </div>
+					  <div class="col-xs-2" align="center">
+					  	 <label class="col-form-label">Blue</label>
+					  	 <div class="">
+					  	 	<input id="fb" maxlength="3" class="form-control" value="" ng-model="brand.fntColor.b" ng-change="fntInputChanged()" type="number" ngTrim="true" min="0" max="255" number-mask="">
+					  	 </div>
+					  </div>
+					  <div class="col-xs-2" align="center">
+					  	 <label class="col-form-label">Alpha</label>
+					  	 <div class="">
+					  	 	<input id="fa" maxlength="3" class="form-control" value="" ng-model="brand.fntColor.a" ng-change="faChanged()" type="text" ngTrim="true"  number-mask="" step="0.1" min="0" max="1">
+					  	 </div>
+					  </div>
+					  <div class="col-xs-1" ng-show="testPallet()">
+					  	<label class="col-form-label">Palette</label>
+				  	 	<input type="color" ng-model="brand.fcolor" id="fntColor" class="form-control">
+					  </div>
+					</div>
+
+				<div class="form-group row">
+				  <div class="col-xs-1"> </div>
+				  <label class="col-xs-3 col-form-label" style="text-align:left;width:auto;">Primary Contact Details</label>
+				</div>
+				<div class="form-group row">
+					<div class="form-group row">
+					  <label for="bpname" class="col-xs-3 col-form-label" ng-class="brand.primaryContact.email ? 'mandatory' : ''">Name</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="brand.primaryContact.name" type="text" ng-minlength="3" ng-maxlength="80" title="Minimum 3 to 80 characters" placeholder="Primary contact name" ngTrim="true" name="bpname" ng-focus="visited_bpname = false" ng-blur="visited_bpname = true" ng-pattern="/^[a-zA-Z0-9' ]*$/" ng-required="brand.primaryContact.email">
+					    <span class='validationError' ng-show="brandForm.bpname.$touched && brandForm.bpname.$error.pattern">*Special characters are not allowed.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="bpemail" class="col-xs-3 col-form-label">Email</label>
+					  <div class="col-xs-9">
+
+					    <input class="form-control" value="" ng-model="brand.primaryContact.email" type="email"  placeholder="Primary contact email address" ngTrim="true" ng-focus="visited_bpemail = false" ng-blur="visited_bpemail = true" ng-pattern="/^[a-zA-Z]*[a-zA-Z0-9._]+@[a-zA-Z]+\.[a-zA-Z.]{2,5}$/" name="bpemail" ng-disabled="!userAccess.Brands.editEmail">
+					    <span class='validationError' ng-show="visited_bpemail && brandForm.bpemail.$touched && (brandForm.bpemail.$error.email || brandForm.bpemail.$error.pattern)">*Enter a valid email address.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="bptel" class="col-xs-3 col-form-label">Phone Number</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="brand.primaryContact.contactNo" type="text" ngTrim="true" name="bptel" ng-pattern="/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/" placeholder="(xxx) xxx-xxxx OR xxx-xxx-xxxx OR xxxxxxxxxx (10 digits)">
+					    <span class='validationError' ng-show="brandForm.bptel.$touched && brandForm.bptel.$error.pattern">*Enter a valid phone number.
+					    </span>
+					  </div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-xs-1"> </div>
+				  <label class="col-xs-3 col-form-label" style="text-align:left;width:auto;">Admin Contact Details</label>
+				</div>
+				<div class="form-group row">
+					<div class="form-group row">
+					  <label for="baname" class="col-xs-3" ng-class="brand.adminContact.email ? 'mandatory' : ''">Name</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="brand.adminContact.name" type="text" ng-minlength="3" ng-maxlength="80" title="Minimum 3 to 80 characters" ngTrim="true" placeholder="Administrator name" name="baname" ng-focus="visited_baname = false" ng-blur="visited_baname = true" ng-pattern="/^[a-zA-Z0-9' ]*$/" ng-required="brand.adminContact.email">
+					    <span class='validationError' ng-show="brandForm.baname.$touched && brandForm.baname.$error.pattern">*Special characters are not allowed.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="baemail" class="col-xs-3">Email</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="brand.adminContact.email" type="email"   ngTrim="true" ng-focus="visited_baemail = false" ng-blur="visited_baemail = true" ng-pattern="/^[a-zA-Z]*[a-zA-Z0-9._]+@[a-zA-Z]+\.[a-zA-Z.]{2,5}$/" name="baemail" placeholder="Administrator email address" ng-disabled="!userAccess.Brands.editEmail">
+					    <span class='validationError' ng-show="visited_baemail && brandForm.baemail.$touched && (brandForm.baemail.$error.email || brandForm.baemail.$error.pattern)">*Enter a valid email address.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="batel" class="col-xs-3">Phone Number</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="brand.adminContact.contactNo" type="text"   ngTrim="true" name="batel" ng-pattern="/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/" placeholder="(xxx) xxx-xxxx OR xxx-xxx-xxxx OR xxxxxxxxxx (10 digits)">
+					    <span class='validationError' ng-show="brandForm.batel.$touched && brandForm.batel.$error.pattern">*Enter a valid phone number.
+					    </span>
+					  </div>
+					</div>
+				</div>
+
+					<div class="form-group row">
+					  <label for="ratingId" class="col-xs-3 col-form-label mandatory">Rating Image</label>
+					  <div class="col-xs-9">
+					   <select class="form-control" ng-model="brand.ratingImgId" ng-options="x.name for x in ratingsList track by x.id" required="true"  id="ratingSelect">
+					   	<option value="" style="display: none;">-- SELECT --</option>
+					   </select>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="cname" class="col-xs-3 col-form-label">Employee Personalization Prefix</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="brand.empPersPref" type="text" min="1" max="20" maxlength="20" title="maximum 20 characters" ngTrim="true" placeholder="Employee's personalization field prefix">
+					    <p>(max 20 characters)</p>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="custId" class="col-xs-3 col-lg-3 col-form-label">Brand Type</label>
+					  <div class="col-xs-9 col-lg-9">
+					    <select class="form-control" ng-model="brand.reasons" ng-options="x.brandType for x in allReasons track by x.id" ng-selected="editableFields()" ng-change="setReasons(brand.reasons)">
+					    	<option value="" style="display: none;" selected="true">-- SELECT --</option>
+					    </select>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="cname" class="col-xs-3 col-form-label">Location Feedback Reasons</label>
+					  <div class="col-xs-6">
+
+					  	<table style="border-collapse: collapse;">
+						 	<tr style="" ng-repeat="reason in locReasons track by $index">
+							    <td style="width: 5%; height: 30px;vertical-align: center; text-align: left;padding:5px;" >
+							    	<label class="pull-left">{{$index+1}}.&nbsp;&nbsp;</label>
+
+							    	<!-- edit option is not applicable for reason == other -->
+							    	<label ng-if="reason === 'Other'" name="locReasons" class="pull-left">{{ reason }}<span class="glyphicon " aria-hidden="true"></span>
+							    	
+							    	</label>
+
+							    	<!-- edit (icon)option is applicable for reason all other resons -->								   	
+							    	<label ng-if="reason !== 'Other'" name="locReasons" class="pull-left">{{ reason }}
+						    		<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+						    		
+						    		</label>
+
+									<input name="{{$index}}" class= "pull-left clickedit" type="text" min="3" max="20" maxlength="20"/>
+									<div class="clearfix"></div>
+							    </td>
+							</tr>
+							<!-- <tr style="">
+							    <td style="width: 5%; height: 60px;vertical-align: center; text-align: left;padding:5px;" >
+							    	<label class="pull-left">{{reasons.length + 1}}.&nbsp;&nbsp;</label>
+							    	<label name="defReasons" class="pull-left">Other</label>
+							    </td>
+							</tr> -->
+							<tr>
+							  	<td style="width: 120px; height: 30px;vertical-align: center; text-align: left;padding:5px;">
+							  		<button type="button" ng-click="resetDefaultsLocation()" class="btn btn-default btn-list-view ">Reset Defaults</button>
+							  	</td>
+							</tr>
+						  </table>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="cname" class="col-xs-3 col-form-label">Employee Feedback Reasons</label>
+					  <div class="col-xs-6">
+
+					  	<table style="border-collapse: collapse;">
+						 	<tr style="" ng-repeat="reason in empReasons track by $index">
+							    <td style="width: 5%; height: 30px;vertical-align: center; text-align: left;padding:5px;" >
+							    	<label class="pull-left">{{$index+1}}.&nbsp;&nbsp;</label>
+							    	
+
+							    	<!-- edit option is not applicable for reason == other -->
+							    	<label name="defReasons" ng-if="reason === 'Other'" class="pull-left">{{ reason }}&nbsp;<span class="glyphicon " aria-hidden="true"></span></label>
+
+							    	<!-- edit (icon)option is applicable for reason all other resons -->								   	
+							    	<label name="defReasons" ng-if="reason !== 'Other'" class="pull-left">{{ reason }}&nbsp;<span class="glyphicon glyphicon-edit" aria-hidden="true"></span></label>
+									
+
+									<input name="{{$index}}" class= "pull-left clickedit" type="text" min="3" max="20" maxlength="20"/>
+									<div class="clearfix"></div>
+							    </td>
+							</tr>
+							<!-- <tr style="">
+							    <td style="width: 5%; height: 60px;vertical-align: center; text-align: left;padding:5px;" >
+							    	<label class="pull-left">{{reasons.length + 1}}.&nbsp;&nbsp;</label>
+							    	<label name="defReasons" class="pull-left">Other</label>
+							    </td>
+							</tr> -->
+							<tr>
+							  	<td style="width: 120px; height: 30px;vertical-align: center; text-align: left;padding:5px;">
+							  		<button type="button" ng-click="resetDefaultsEmployee()" class="btn btn-default btn-list-view ">Reset Defaults</button>
+							  	</td>
+							</tr>
+						  </table>
+					  </div>
+					</div>
+					<div class="form-group row">
+						<label for="broles" class="col-xs-3 col-form-label">Roles</label>
+					  <div class="col-xs-9">
+					  	<div class="col-xs-6" style="text-align:left;">
+					  		<p>Add Role</p>
+					  	</div>
+					  	<div class="col-xs-2">
+					  		<a class="btn btn-default btn-list-view " href ng-click="showModal()">+</a>
+					  	</div>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label class="col-xs-3 col-form-label"></label>
+					  <div class="col-xs-9">
+					  	<table id="roleTable" style="border-collapse: collapse;border: 1px solid black;">
+					  	  <tbody>
+					  	  	<tr style="border: 1px solid black;">
+							  	<th style="width: 180px; height: 60px;vertical-align: center; text-align: center;padding:5px;">Role Name</th>
+							  	<th style="width: 50rem; height: 60px;vertical-align: center; text-align: center;padding:5px;">Feedback Reasons</th>
+							  	<th style="width: 12rem; height: 60px;vertical-align: center; text-align: center;padding:5px;">Actions</th>
+						  	</tr>
+						  	<!--  -->
+						  </tbody>
+						</table>
+					  </div>
+					</div>
+					<div class="form-group row" ng-if="!brand.isEditBrand">
+					<br>
+					  <button type="submit" class="btn btn-default btn-list-view  pull-right" ng-disabled="brandForm.$invalid" ng-click="saveBrandDetails(brand)">Save</button>
+					  <button type="submit" id="cancelModal" class="btn btn-default btn-list-view  pull-right" style="margin-right:5px"
+			 		ng-click="showCancelModal()">Cancel</button>
+					</div>
+					<div class="form-group row" ng-if="brand.isEditBrand">
+					<br>
+				
+					  <button type="submit" class="btn btn-default btn-list-view  pull-right" ng-disabled="brandForm.$invalid || brandForm.$pristine" ng-click="editBrandDetails(brand)">Update</button>
+					
+					  <button type="submit" id="cancelModal" class="btn btn-default btn-list-view  pull-right" style="margin-right:5px"
+				 		ng-click="showCancelModal()">Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+</div>

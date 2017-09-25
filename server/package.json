@@ -1,0 +1,71 @@
+{
+  "name": "Applause",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha tests/unit/**/*.js"
+  },
+  "dependencies": {
+    "@google-cloud/debug-agent": "^0.10.2",
+    "acl": "^0.4.10",
+    "angular": "^1.5.8",
+    "angular-cookies": "^1.5.8",
+    "angular-route": "^1.5.8",
+    "angular-ui-grid": "^3.2.9",
+    "angular-xeditable": "^0.2.0",
+    "bcrypt-nodejs": "0.0.3",
+    "binstring": "^0.2.1",
+    "body-parser": "^1.13.3",
+    "busboy": "^0.2.12",
+    "cfenv": "1.0.x",
+    "compression": "^1.6.1",
+    "cookie-parser": "~1.3.5",
+    "csv-parser": "^1.2.0",
+    "dateformat": "^1.0.12",
+    "debug": "~2.2.0",
+    "escape-string-regexp": "^1.0.5",
+    "express": "~4.13.1",
+    "forEachAsync": "^3.0.0",
+    "fs": "~0.0.1",
+    "glob": "^7.1.1",
+    "google-cloud": "^0.47.0",
+    "hashmap": "^2.0.6",
+    "http-post": "^0.1.1",
+    "http-server": "",
+    "iconv-lite": "^0.4.13",
+    "jsonwebtoken": "^5.7.0",
+    "ldapjs": "^1.0.0",
+    "md5": "^2.1.0",
+    "minimist": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "mobile-detect": "^1.3.2",
+    "mongoose": "~4.5.9",
+    "morgan": "~1.6.1",
+    "multer": "^1.1.0",
+    "node-geocoder": "^3.13.1",
+    "nodemailer": "^2.5.0",
+    "nodemailer-express-handlebars": "^2.0.0",
+    "path": "^0.12.7",
+    "q": "^1.4.1",
+    "replace": "^0.3.0",
+    "sequence": "",
+    "serve-favicon": "~2.3.0",
+    "shortid": "^2.2.6",
+    "stream-transform": "^0.1.2",
+    "unzip2": "^0.2.5",
+    "winston": "~2.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "mocha": "^2.4.5",
+    "node-mocks-http": "^1.5.2",
+    "should": "^8.3.0"
+  },
+  "repository": {
+    "git": "https://bitbucket.org/applause_team/applause_backend_portal.git"
+  },
+  "engines": {
+    "node": "~6.9"
+  }
+}

@@ -1,0 +1,54 @@
+<div ng-controller="brandCtrl" ng-click="" ng-init="getAllBrands()" style="margin-top:60px">
+<div id="res"></div>
+	<div class="headerMessage">
+		<div class="alert alert-success" ng-show="showSuccessAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+		     <strong>{{successTextAlert}}</strong> 
+		</div>
+		<div class="alert alert-danger" ng-show="showFailureAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+		     <strong>{{failureTextAlert}}</strong>
+		</div>
+	</div>	
+<div class="wrapper">
+	<div class="">
+		<!-- <div class="alert alert-success" ng-show="showSuccessAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button>
+		     <strong>{{successTextAlert}}</strong>
+		</div>
+		<div class="alert alert-danger" ng-show="showFailureAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button>
+		     <strong>{{failureTextAlert}}</strong>
+		</div> -->
+		<div class="col-xs-9 col-md-11 pull-md-3" data-example-id="" >
+		<h3>Brands</h3>
+		</div>
+		<div ng-hide="loaded" class="se-pre-con1">
+		</div>
+		<div class="col-xs-9 col-md-11 pull-md-3" data-example-id="" style="text-align:right">
+			
+			<a  class="btn btn-default btn-list-view" data-toggle="tooltip" data-placement="right" title="Create a brand" ng-if="userAccess.Brands.create" ng-click="goToCreate()" >Add New</a>
+			
+			<a class="btn btn-default btn-list-view" ng-if="userAccess.Brands.delete" ng-disabled="countRows == 0" ng-click="showDelModal(null,1)">Delete</a>
+			<a class="btn btn-default btn-list-view" ng-if="userAccess.Brands.edit" ng-disabled="countRows !==1" ng-click="goToEdit()">Edit</a>
+			<a class="btn btn-default btn-list-view" ng-if="userAccess.Brands.sendInvite" ng-disabled="countRows == 0" ng-click="inviteContact()">Send Invite</a>
+			<!-- <label class="radio-inline radio-invite" ng-show="countRows"><input ng-model="inviteRadio" ng-value="1" ng-checked="true" type="radio" name="inviteOption" checked="checked">Primary</label>
+			<label class="radio-inline radio-invite" ng-show="countRows"><input ng-model="inviteRadio" ng-value="2" type="radio" name="inviteOption">Admin</label> -->
+
+			<div class="btn-group radio-invite" id="radioGroup" data-toggle="buttons" ng-if="countRows && userAccess.Brands.sendInvite">
+						  <label class="btn btn-primary active">
+						    <input type="radio" name="options"  value="1"  ng-model="inviteRadio" id="option1" autocomplete="off" checked>Primary
+						  </label>
+						  <label class="btn btn-primary">
+						    <input type="radio" name="options"  value="2" ng-model="inviteRadio" id="option2" autocomplete="off">Admin
+						  </label>
+			</div>
+		</div>
+		<div ng-if="!refresh" class="col-xs-9 col-md-12 pull-md-3 grid_layout" data-example-id="" >
+			<!-- 1-{{noOfItems}} of {{noOfItems}} -->
+			<div id="grid1" ui-grid="gridOptions" ui-grid-selection ui-grid-pagination class="grid"></div>
+		</div>
+	</div>
+</div>
+
+</div>

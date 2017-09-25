@@ -1,0 +1,25 @@
+<!-- Left side Navigation panel -->
+<div>
+	<table>
+	  <tr>
+	    <td>
+	    	<table id="navOp" style="border-collapse: collapse;border: 1px solid black;">
+			  <tr style="border: 1px solid black; background-color: red;" ng-repeat="x in navOptions track by $index">
+			    <td style="width: 120px; height: 60px;vertical-align: center; text-align: center;padding:5px;">
+			    	<a href="" class="menu-item" ng-click="setSubNavOptions(x.subOptions, $index)">{{ x.option }}</a>
+			    </td>
+			  </tr>
+			</table>
+	    </td>
+	    <td style="vertical-align: top;" ng-if="subNavFlag">
+	    	<table id="subNavOp" style="border-collapse: collapse;border: 1px solid black;">
+			  <tr style="border: 1px solid black;" ng-repeat="x in subNavOptions track by $index">
+			    <td style="width: 120px; height: 60px;vertical-align: center; text-align: center;padding:5px;">
+			    	<a href="" ng-click="traverse(x.path, $index)">{{ x.value }}</a>
+			    </td>
+			  </tr>
+			</table>
+	    </td>
+	  </tr>
+	</table>
+</div>

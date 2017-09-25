@@ -1,0 +1,74 @@
+<div ng-controller="taskCtrl" ng-init="populateUpdate('contactUs')" ng-click="" style="margin-top:60px">
+<div id="res"></div>
+
+	<div class="headerMessage" >
+				<div class="alert alert-success" ng-show="showSuccessAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+				     <strong>{{successTextAlert}}</strong> 
+				</div>
+				<div class="alert alert-danger" ng-show="showFailureAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+				     <strong>{{failureTextAlert}}</strong>
+				</div>
+	</div>
+<div class="wrapper">
+	<div class="">
+		<!-- <div class="alert alert-success" ng-show="showSuccessAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button>
+		     <strong>{{successTextAlert}}</strong>
+		</div>
+		<div class="alert alert-danger" ng-show="showFailureAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button>
+		     <strong>{{failureTextAlert}}</strong>
+		</div>
+ -->
+		<div class="col-xs-9 col-md-11 pull-md-3 workArea" data-example-id="">
+			<form name="contactDetailsForm">
+				<div class="form-group row">
+				  <label for="conemail" class="col-xs-3 col-form-label">Email</label>
+				  <div class="col-xs-9">
+				    <input class="form-control" value="" ng-model="contactUs.email" type="email" name="conemail" required="true" placeholder="Email address" ngTrim="true">
+				    <span class='validationError' ng-show="contactDetailsForm.conemail.$touched && contactDetailsForm.conemail.$error.required">*Email is required.
+				    </span>
+				    <span class='validationError' ng-show="contactDetailsForm.conemail.$touched && contactDetailsForm.conemail.$error.email">*Enter a valid email address.
+				    </span>
+				  </div>
+				</div>
+				<div class="form-group row">
+				  <label for="ctel" class="col-xs-3 col-form-label">Phone</label>
+				  <div class="col-xs-9">
+				    <input class="form-control" value="" ng-model="contactUs.contactNo" type="text" ngTrim="true" name="ctel" ng-pattern="/^\d+[-]\d+[-]\d+$|^\d+[-]\d+$|^[0-9]*$/" placeholder="contact phone number">
+				    <span class='validationError' ng-show="contactDetailsForm.ctel.$touched && contactDetailsForm.ctel.$error.pattern">*Enter a valid phone number.
+				    </span>
+				  </div>
+				</div>
+				<div class="form-group row">
+				  <label for="caddress" class="col-xs-3 col-form-label">Address</label>
+				  <div class="col-xs-9">
+				  	<textarea class="form-control" rows="3" ng-model="contactUs.address" title="Minimum 3 to 300 characters" placeholder="Address" ngTrim="true"></textarea>
+				  </div>
+				</div>
+				<div class="form-group row">
+				  <label for="stime" class="col-xs-3 col-form-label">Start Time</label>
+				  <div class="col-xs-9">
+				    <input class="form-control" value="" ng-model="contactUs.startTime" type="text" 
+				     placeholder="Start Time" ngTrim="true" name="cemail">
+				  </div>
+				</div>
+				<div class="form-group row">
+				  <label for="etime" class="col-xs-3 col-form-label">End Time</label>
+				  <div class="col-xs-9">
+				    <input class="form-control" value="" ng-model="contactUs.endTime" type="text" 
+				    placeholder="End Time" ngTrim="true" name="cemail">
+				  </div>
+				</div>
+				<div class="form-group row">
+				<br>
+				  <button type="submit" class="btn btn-default btn-list-view  pull-right" ng-disabled="contactDetailsForm.$invalid" ng-click="updateContactUs(contactUs)">Update</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+</div>

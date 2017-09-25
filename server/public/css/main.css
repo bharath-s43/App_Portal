@@ -1,0 +1,525 @@
+  /* 
+Custom CSS for...
+'Modern Business' HTML Theme by Start Bootstrap
+
+All Start Bootstrap themes are licensed under Apache 2.0. 
+For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap.com!
+*/
+
+/* Global Styles */
+
+html, body {
+    height: 100%;
+}
+
+body {
+    padding-top: 0px;
+    padding-bottom: 20px;
+    margin-left:0px;
+}
+
+.dropdown-header {
+    cursor:pointer;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
+@media only screen and (min-width : 1224px) {
+div.wrapper {
+    overflow: auto;
+    margin-left: 18%;
+    margin-right: 2%;
+}
+
+
+}
+@media only screen and (min-width : 1300px) {
+div.wrapper {
+    overflow: auto;
+    margin-left: 17%;
+    margin-right: 2%;
+}
+}
+
+@media only screen and (min-width : 1824px) {
+div.wrapper {
+    overflow: auto;
+    margin-left: 12%;
+    margin-right: 2%;
+}
+}
+
+
+
+
+
+div.first {
+    float: left;
+    width: 20%;
+}
+
+div.second {
+    margin: 0 0 0 30%;
+}
+
+.highlight-nav {
+    background: greenyellow;
+}
+
+.workArea {
+    padding: 1.5rem;
+    border-width: .2rem;
+    position: relative;
+    margin: 1rem 1rem;
+    border: solid #f7f7f9;
+    text-align: right;
+    /*overflow: scroll;*/
+    /*max-height: 100rem;*/
+}
+
+form > div > label{
+   text-align: right;
+}
+
+form > div > div > label{
+   text-align: right;
+}
+
+div[ng-app] { margin: 5px; }
+div[ng-controller="Ctrl"] > div {
+   height: 35px;
+}
+div[ng-controller="Ctrl"] > div > * {
+   vertical-align: top;
+}
+
+/* Footer Styles */
+footer {
+    margin: 50px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+
+    .carousel {
+        height: 70%;
+        /* increases the carousel height so it looks good on phones */
+    }
+}
+
+.validationError {
+    color: red;
+}
+
+
+.highlight {
+    background: lightgrey;
+}
+
+.un-highlight {
+    background: white;   
+}
+
+.modal-title {
+    font-size: 16px !important;
+    font-weight: bold !important;
+ }
+
+ .grid {
+    border:none !important;
+ }
+
+ .myGrid {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ui-grid-cell-contents {
+    text-align: left !important;
+    
+  }
+
+  .ui-grid, .ui-grid-viewport {
+  height: auto !important;
+  min-height: 400px;
+}
+
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url(../assets/loading.gif) center no-repeat #fff;
+}
+
+.se-pre-con1 {
+  position: absolute;
+  left: inherit;
+  display: block;
+  top: inherit;
+  width: 100vh;
+  height: 100vh;
+  z-index: 9999;
+  background: url(../assets/loading.gif) center no-repeat rgba(255, 255, 255, 0.29);
+}
+
+.leftPane { 
+  padding-right: 3%;
+}
+
+
+        
+header{
+  margin-bottom: 5vh;
+  height: 100%;
+  background: #335C7D;
+  color: #fff;
+/*  // set animation
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;*/
+}
+
+header.sticky {
+  position: fixed;
+  font-size: 24px;
+  line-height: 48px;
+  height: 48px; 
+  width: 100%;
+  background: #335C7D;
+  padding-left: 20px;
+}
+
+header.sticky img
+{
+  position: absolute;
+  max-width:100%; 
+  max-height:100%;
+  margin:auto;
+  display:block;
+}
+
+.alert {
+  width: 100%;
+}
+
+.ui-grid-top-panel {
+    background: #cbf2e4;
+    color: black;
+}
+
+.ui-grid-cell 
+{
+    border-right: 0px !important;
+}
+
+.ui-grid-header-cell {
+  border: none !important;
+}
+
+.ui-grid-filter-input {
+  color: grey !important;
+}
+
+.ui-grid-row:nth-child(even) .ui-grid-cell {
+    background-color: #ececec !important;
+}
+
+.ui-grid-row:nth-child(odd) .ui-grid-cell {
+    background-color: white !important;
+}
+
+.ui-grid-row .ui-grid-cell.ui-grid-row-header-cell {
+  border-bottom: none !important;
+}
+
+.ui-grid-cell-contents {
+  margin-left: 6px !important;
+}
+
+.btn-list-view {
+  background: #a9a9a9;
+  color:white;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  min-width: 15%;
+}
+
+.btn-list-view-small {
+  background: #a9a9a9;
+  color:white;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  min-width: 12%;
+}
+
+.radio-invite {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-default[disabled] {
+  background: lightgrey;
+}
+
+.fa-paper-plane {
+  margin-right: 4px;
+}
+
+/*.sidebar ul li a.active {
+  background-color: red !important;
+}*/
+
+.list-v-email {
+  font-size: 12px;
+}
+
+.navselect {
+  width: 95%;
+  
+}
+
+.navtextleft
+{
+  text-align: right !important;
+}
+
+hr
+{
+  border-color: #979797 !important;
+  width: 90% !important;
+
+}
+
+
+.ui-grid-header
+{
+  border-bottom:none !important;
+}
+
+.ui-grid-column-menu-button-last-col
+{
+  margin-right : 4px !important;
+}
+
+/*select buttons of grid vertical align center*/
+.ui-grid-selection-row-header-buttons
+{
+  line-height: 42px;
+}
+
+/*table text align vertically center*/
+.textVerticalAlign
+{
+  line-height:43px;
+  vertical-align:bottom;
+  text-align:left;
+}
+
+
+
+
+
+@media only screen and (min-width : 1224px) {
+.headerMessage
+  {
+      margin-left: 15.6%;
+      height:50px;
+  }
+}
+
+
+@media only screen and (min-width : 1300px) {
+.headerMessage
+  {
+      margin-left: 13.9%;
+      height:50px;
+  }
+}
+
+@media only screen and (min-width : 1600px) {
+.headerMessage
+  {
+      margin-left: 12.5%;
+      height:50px;
+  }
+}
+
+@media only screen and (min-width : 1824px) {
+.headerMessage
+  {
+      margin-left: 10.4%;
+      height:50px;
+  }
+}
+
+
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+.headerMessage
+  {
+      margin-left: 19.6%;
+      height:50px;
+  }
+}
+
+
+
+
+.btn-primary.active {
+  background-color: #a9a9a9 !important;
+  border-color: none !important;
+}
+
+.btn-primary{
+  background-color: lightgrey !important;
+  background-image: none !important;
+  border-color: transparent !important;
+}
+
+.PV {
+  color: grey;
+}
+
+.IS {
+  color: yellow;
+}
+
+.AV {
+  color: green;
+}
+
+
+input[type="text"].ui-grid-filter-input{
+  padding-right: 18px !important;
+}
+
+.NA {
+  color: red;
+
+}
+
+/*ui-grid pagination number after the slash*/
+.ui-grid-pager-max-pages-number
+{
+  vertical-align: middle !important;
+}
+
+
+/*class to align text of grid and padding right to zero because  default is 15px for Bootstrap col-md*/
+.grid_layout
+{
+  text-align:right;
+  padding-right: 0px !important;
+}
+
+/*For removing dots from bottom of abbr*/
+abbr[title] {
+  border-bottom: none !important;
+  cursor: inherit !important;
+  text-decoration: none !important;
+}
+
+
+
+.pointer
+{
+  cursor: not-allowed;
+}
+
+  
+.btn[disabled]{
+    pointer-events: all !important;
+}
+
+
+label
+{
+  display: inline-block;
+  line-height: 30px;
+}
+
+/* Tooltip container */
+.fa-paper-plane {
+    /*position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */*/
+}
+
+/* Tooltip text */
+.fa-paper-plane .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.fa-paper-plane:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    min-width: 160px;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    min-width: 160px;
+    display: inline-block;
+    float: left;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    margin-top: 40px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    overflow: visible;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ccc}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.logo-img {
+  max-width: 20%;
+  max-height: 10%; 
+}

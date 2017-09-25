@@ -1,0 +1,169 @@
+<div ng-controller="empCtrl" ng-click="" style="margin-top:60px" ng-init="initBulkUpload()">
+<div id="res"></div>
+
+		<div class="headerMessage" >
+				<div class="alert alert-warning" ng-show="showMessageAlert">
+		    		 <button type="button" class="close" data-ng-click="switchBool('showMessageAlert')">×</button> 
+		     		 <strong>{{messageTextAlert}}</strong> 
+				</div>
+
+				<div class="alert alert-success" ng-show="showSuccessAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+				     <strong>{{successTextAlert}}</strong> 
+				</div>
+				<div class="alert alert-danger" ng-show="showFailureAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+				     <strong>{{failureTextAlert}}</strong>
+				</div>
+		</div>
+
+
+<div class="wrapper"> 
+	<div class="">
+	<div ng-hide="loaded" class="se-pre-con1">
+	</div>
+	<div id="contScreen">
+		<!-- <div class="alert alert-success" ng-show="showSuccessAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+		     <strong>{{successTextAlert}}</strong> 
+		</div>
+		<div class="alert alert-danger" ng-show="showFailureAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+		     <strong>{{failureTextAlert}}</strong>
+		</div> -->
+		<div class="col-xs-9 col-md-11 pull-md-3" data-example-id="">
+		<h3>Create employees in bulk</h3>
+		</div>
+		<div ng-show="rootLocation.id && rootCustomer.id" class="col-xs-9 col-md-11 pull-md-3 workArea" data-example-id="" >
+			<form name="employeeForm">	
+				<!-- <div class="form-group row">
+				  <label for="custId" class="col-xs-3 col-form-label">Customer</label>
+				  <div class="col-xs-9">
+				    <select id="custSelect" class="form-control" ng-model="emp.custId" ng-options="x.name for x in lists.customersList track by x.id" ng-change="getBrands(emp.custId)">
+				    	<option value="" style="display: none;" selected="true">-- SELECT --</option>
+				    </select>
+				  </div>
+				</div>
+				<div class="form-group row">
+					<label for="brandId" class="col-xs-3 col-form-label">Brand</label>
+				  	<div class="col-xs-9">
+				    <select id="brandSelect" class="form-control" ng-model="emp.brandId" ng-options="x.name for x in lists.brandsList track by x.id" ng-change="getLocations(emp.brandId)">
+				    	<option value="" style="display: none;" selected="true">-- SELECT --</option>
+				    </select>
+				  </div>
+				</div>
+				<div class="form-group row">
+					<label for="locId" class="col-xs-3 col-form-label">Location</label>
+				  	<div class="col-xs-9">
+				    <select id="locSelect" class="form-control" ng-model="emp.locId" ng-options="x.lname for x in lists.locationsList track by x.id">
+				    	<option value="" style="display: none;" selected="true">-- SELECT --</option>
+				    </select>
+				  </div>
+				</div> -->
+				<div   ng-show="rootLocation.id && rootCustomer.id">
+					<div class="form-group row">
+					  <label for="logo_img" class="col-xs-3 col-form-label mandatory">Employee Details Bulk Upload</label>
+					  <div class="col-xs-9" style="text-align:left;">
+					  	<label class="custom-file">
+							<input type="file" id="empCSV" ng-model="filenameCSV" valid-file name="empCSV" required class="form-control-file  custom-file-input pull-left" title="CSV File for Employee Bulk Creation" accept=".csv" onchange="angular.element(this).scope().getFileBinaryData('EmployeeData');" >
+							<span class="custom-file-control"></span>
+							<span class="validationError" ng-show="!isValidFileCSV" >File size exceeded.</span><br>
+							<span class="text">File size upto 200 Kilobytes is allowed.</span>
+						</label>
+						<a target="_self" ng-href="{{template_employee_bulk_link}}" class="btn-sm btn-default btn-list-view  pull-right">
+						Download Template
+						</a>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="logo_img" class="col-xs-3 col-form-label">Image Bulk Upload</label>
+					  <div class="col-xs-9" style="text-align:left;">
+					  	<label class="custom-file">
+							<input type="file" id="empImgBulk" ng-model="filenameIMAGE" valid-file class="form-control-file  custom-file-input pull-left" title="Zip File for Bulk Employee Image upload"  accept=".zip" onchange="angular.element(this).scope().getFileBinaryData('Image');">
+							<span class="custom-file-control"></span>
+							<span class="validationError" ng-show="!isValidFileZIP" >File size exceeded.</span><br>
+							<span class="text">Image size upto 15 Megabytes is allowed.</span>
+						</label>
+					  </div>
+					</div>
+					<div class="form-group row" style="text-align:left;">
+						<p class="text">
+							<h3 style="padding-left: 1%;">Employee Details Bulk Upload</h3>
+							<ol>
+								<li>Please press "Download Template" and it will download a .csv template file in your computer.</li>
+								<li>Enter details of your employees in a comma separated manner one employee record per line.</li>
+								<li>If you are not entering value for a given field, please keep it empty/blank.</li>
+								<li>Make sure you enter date in a right format (mm/dd/yyyy). Make sure to checkout date format before upload since Microsoft Excel or some other CSV tools auto format date.</li>
+								<li>Accepted Phone number(10 digits) formats are - <br>
+									<ul>(xxx) xxx-xxxx</ul>
+									<ul>xxx-xxx-xxxx</ul>
+									<ul>xxxxxxxxxx</ul>
+								</li>
+								<li>Make sure to remove any blank lines if any, since it will result in validation errors.</li>
+								<li>The maximum limit for records in CSV file is 150.</li>
+								<li>Applause platform supports CSV files only for upload functionality.</li>
+							</ol>
+						</p>
+						<p class="text">
+							<h3 style="padding-left: 1%;">Image Bulk Upload</h3>
+							<ol>
+								<li>Prepare a zip file containing profile images of all employees.</li>
+								<li>Supported image formats are .png (preferred) and .jpg/.jpeg.
+								</li>
+								<li>Preferred image dimensions are 150x150.</li>
+								<li>The maximum limit for images in zip file is 150.</li>
+								<li>The maximum allowed size for each image in zip file should not exceed 100 Kilobytes.</li>
+								<li>This is an optional file and even within the zip file you can give partial list of images. For e.g your employee details csv file has 100 employee records, you may choose to supply profile images for only 50 out of them.</li>
+								<li>Compress all images in one .zip file and upload it.</li>
+							</ol>
+						</p>
+					</div>
+					<div class="form-group row">
+					<br>
+					  <button id="subBtn" type="button" class="btn btn-default btn-list-view  pull-right" ng-disabled="filesSelected" ng-click="createEmployeeBulk(emp)">Save</button>
+						
+				      <button type="submit" id="cancelModal" class="btn btn-default btn-list-view  pull-right" style="margin-right:5px"
+				 		ng-click="showCancelModal()">Cancel</button>
+					</div>
+					<div id="postErrors" class="form-group row alert alert-warning" ng-if="lists.empNoFound.length > 0 || lists.validationErrors.length > 0 || 
+					lists.empDup.length > 0 || lists.beaconDup.length > 0 || lists.creationError.length > 0">
+						<div class="form-group row" ng-if="lists.empNoFound && lists.empNoFound.length > 0">
+							<p class="col-form-label">Warnings: </p>
+							<label for="lists.empNoFound" class="col-xs-3 col-form-label">Employees Not Found (EmployeeIds)</label>
+						  	<div class="col-xs-9">
+						    	<label ng-repeat="a in lists.empNoFound track by $index">{{a[2]}}<label>,&nbsp;&nbsp;</label></label>
+						  	</div>
+						</div>
+						<div class="form-group row" ng-if="lists.validationErrors &&  lists.validationErrors.length > 0">
+							<label for="lists.validationErrors" class="col-xs-3 col-form-label">Validation Errors in CSV File </label>
+						  	<div class="col-xs-9" style="text-align:left;">
+						    	<p ng-repeat="err in lists.validationErrors track by $index">{{err.message}}</p>
+						  	</div>
+						</div>
+						<div class="form-group row" ng-if="lists.empDup && lists.empDup.length > 0">
+							<label for="lists.empDup" class="col-xs-3 col-form-label">Employees already exists in system (Employee Ids)</label>
+						  	<div class="col-xs-9" style="text-align:left;">
+						    	<label ng-repeat="z in lists.empDup track by $index">{{z[2]}}<label>,&nbsp;&nbsp;</label></label>
+						  	</div>
+						</div>
+						<div class="form-group row" ng-if="lists.beaconDup && lists.beaconDup.length > 0">
+							<label for="lists.beaconDup" class="col-xs-3 col-form-label">Beacons already exists and Assigned (Beacon Ids)</label>
+						  	<div class="col-xs-9" style="text-align:left;">
+						    	<label ng-repeat="y in lists.beaconDup track by $index">{{y[3]}}<label>,&nbsp;&nbsp;</label></label>
+						  	</div>
+						</div>
+						<div class="form-group row" ng-if="lists.creationError && lists.creationError.length > 0">
+							<label for="lists.creationError" class="col-xs-3 col-form-label">Error creating Employees (Employee Ids)</label>
+						  	<div class="col-xs-9" style="text-align:left;">
+						    	<label ng-repeat="y in lists.creationError track by $index">{{y[2]}}<label>,&nbsp;&nbsp;</label></label>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>	
+	</div>
+	</div>
+</div>
+
+</div>

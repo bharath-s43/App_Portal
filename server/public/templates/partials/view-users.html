@@ -1,0 +1,42 @@
+<div ng-controller="userCtrl" ng-click="" style="margin-top:60px" ng-init="getAllUsers()">
+<div id="res"></div>
+		<div class="headerMessage" >
+				<div class="alert alert-warning" ng-show="showMessageAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showMessageAlert')">×</button> 
+				     <strong>{{messageTextAlert}}</strong> 
+				</div>
+
+				<div class="alert alert-success" ng-show="showSuccessAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+				     <strong>{{successTextAlert}}</strong> 
+				</div>
+				<div class="alert alert-danger" ng-show="showFailureAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+				     <strong>{{failureTextAlert}}</strong>
+				</div>
+		</div>
+<div class="wrapper"> 
+		<!-- <div class=""> -->
+		
+
+		<div class="col-xs-9 col-md-11 pull-md-3" data-example-id="">
+		<h3>Users</h3>
+		</div>
+
+		<div class="col-xs-9 col-md-11 pull-md-3" data-example-id="" style="text-align:right">
+			<a class="btn btn-default btn-list-view" ng-if="countRows && userAccess.Users.edit" ng-disabled="countRows !==1" ng-click="">Edit</a>
+			<a class="btn btn-default btn-list-view" ng-if="countRows && userAccess.Users.delete" ng-click="showDelModal()">Delete</a>
+		</div>
+
+		<!-- <div class="col-xs-9 col-md-11 pull-md-3 workArea" data-example-id=""> -->
+			<div ng-if="!refresh" class="col-xs-9 col-md-12 pull-md-3 grid_layout" data-example-id="" >
+			<!-- 1-{{noOfItems}} of {{noOfItems}} -->
+			<!-- <div id="grid1" ui-grid="gridOptions" ui-grid-selection class="grid"></div> -->
+			<div ui-if="gridOptions.data.length > 0"  id="grid1" ui-grid="gridOptions" style="border:none;" class="grid" ui-grid-selection  ui-grid-pagination ng-style="getTableStyle()">
+			</div>
+			</div>
+		<!-- </div>	 -->
+	<!-- </div> -->
+</div>
+
+</div>

@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"applause.customers"},{"v":1,"unique":true,"key":{"cid":1},"name":"cid_1","background":true,"ns":"applause.customers"}]}

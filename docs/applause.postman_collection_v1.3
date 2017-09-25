@@ -1,0 +1,1740 @@
+{
+	"variables": [],
+	"info": {
+		"name": "applause",
+		"_postman_id": "cbbde971-64fc-25a3-39ab-1ef43a83dbb8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user login",
+			"request": {
+				"url": "http://localhost:6002/api/v1/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "deviceId",
+						"value": "asdsdfs67612jdd",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"gvb@gmail.com\",\n    \"password\": \"gvb\"\n}"
+				},
+				"description": "Login API"
+			},
+			"response": [
+				{
+					"name": "login sucess response",
+					"originalRequest": {
+						"url": "http://localhost:6001/api/v1/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": "{\n    \"contactNo\": \"9890098900\",\n    \"password\": \"kpratik\"\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"name": "Access-Control-Allow-Headers",
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With",
+							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "Authorization",
+							"key": "Authorization",
+							"value": "Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDEwOjI0OjQwLjYwM1oiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDEwOjI0OjQwLjYwM1oiLCJfaWQiOiI1N2I1OGNlOGNiMmU4NDZmOTkwZGU1MjEiLCJpYXQiOjE0NzE1MzMwMDd9.hV9hCw7Bhgl9I1vb6A2zqFW-LE4rTnJ2fpp2Oc2viI8",
+							"description": "Custom header"
+						},
+						{
+							"name": "BigNodeI5",
+							"key": "BigNodeI5",
+							"value": "true",
+							"description": "Custom header"
+						},
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 18 Aug 2016 15:10:07 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "Vary",
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 113,
+					"body": "{\"error\":0,\"errorMessage\":\"\",\"displayMessage\":\"User logged in successfully !!!\",\"data\":{\"role_id\":1,\"location\":{\"lng\":\"3.433\",\"lat\":\"65.6565\"},\"isActive\":0,\"isDeleted\":0,\"appDetails\":{\"version\":\"0.0.1\"},\"__v\":0,\"dob\":\"1993-08-18T00:00:00.000Z\",\"sex\":\"1\",\"contactNo\":9890098900,\"dialingCode\":\"+91\",\"password\":\"kpratik\",\"email\":\"gvb@gmail.com\",\"name\":\"gvb\",\"createdAt\":\"2016-08-18T10:24:40.603Z\",\"updatedAt\":\"2016-08-18T10:24:40.603Z\",\"_id\":\"57b58ce8cb2e846f990de521\"}}"
+				},
+				{
+					"name": "user login success resopnse",
+					"originalRequest": {
+						"url": "http://localhost:6001/api/v1/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": "{\n    \"contactNo\": \"9890098900\",\n    \"password\": \"kpratik\"\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"name": "Access-Control-Allow-Headers",
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With",
+							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "Authorization",
+							"key": "Authorization",
+							"value": "Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+							"description": "Custom header"
+						},
+						{
+							"name": "BigNodeI5",
+							"key": "BigNodeI5",
+							"value": "true",
+							"description": "Custom header"
+						},
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Fri, 19 Aug 2016 03:59:32 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "Vary",
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 63,
+					"body": "{\"error\":0,\"errorMessage\":\"\",\"displayMessage\":\"User logged in successfully !!!\",\"data\":{\"role_id\":1,\"location\":{\"lng\":\"3.433\",\"lat\":\"65.6565\"},\"isActive\":0,\"isDeleted\":0,\"appDetails\":{\"version\":\"0.0.1\"},\"__v\":0,\"dob\":\"1993-08-18T00:00:00.000Z\",\"sex\":\"1\",\"contactNo\":9890098900,\"dialingCode\":\"+91\",\"password\":\"kpratik\",\"email\":\"gvb@gmail.com\",\"name\":\"gvb\",\"createdAt\":\"2016-08-18T18:22:49.158Z\",\"updatedAt\":\"2016-08-18T18:22:49.158Z\",\"uid\":3,\"_id\":\"57b5fcf90277867f9e61ab15\"}}"
+				},
+				{
+					"name": "user login success",
+					"originalRequest": {
+						"url": "http://localhost:6002/api/v1/login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content"
+							},
+							{
+								"key": "deviceId",
+								"value": "asdsdfs67612jdd",
+								"enabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"gvb@gmail.com\",\n    \"password\": \"gvb\"\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"name": "Access-Control-Allow-Headers",
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With, Content-Type, Authorization",
+							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "Access-Control-Expose-Headers",
+							"key": "Access-Control-Expose-Headers",
+							"value": "X-Requested-With, Content-Type, Authorization",
+							"description": "Lets a server whitelist headers that browsers are allowed to access."
+						},
+						{
+							"name": "Authorization",
+							"key": "Authorization",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkZXZpY2VJbmZvIjp7Il9pZCI6e30sImRldmljZVZlciI6IjYiLCJkZXZpY2VOYW1lIjoiaVBob25lIiwib3NWZXIiOiI5LjMuNCIsIm9zTmFtZSI6ImlvcyJ9LCJsb2NhdGlvbiI6eyJfaWQiOnt9LCJsYXQiOiIxMi4zMyIsImxuZyI6IjIzLjMzMyJ9LCJwZXJzb25hbEluZm8iOnsiX2lkIjp7fSwiaW1nRGF0YSI6InF3d3Fkd2Zkd2Z3ZWZyd2Vyd2Vyd2Vyd2UiLCJmdWxsTmFtZSI6IkdhdXJhdiBWIEJvcmEifSwiaXNBY3RpdmUiOjEsImlzRGVsZXRlZCI6MCwiX192IjowLCJyb2xlX2lkIjp7Il9pZCI6IjU3YzcxZjM0NTBiNzFmMWUyMzZkYTUzYyIsImFjY2Vzc2xpc3QiOlsiQUxMIl0sInJvbGVfdHlwZSI6IkFQUExBVVNFX0FETUlOIiwiaWQiOiI1N2M3MWYzNDUwYjcxZjFlMjM2ZGE1M2MifSwicGFzc3dvcmQiOiJndmIiLCJhcHBWZXIiOiIwLjAuMSIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsInBob25lTm8iOjk5OTAxMDk4OTkwLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTMxVDE5OjQwOjMwLjEyOVoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTMxVDE5OjQwOjMwLjEyOVoiLCJ1aWQiOjIsIl9pZCI6IjU3YzczMmFlZGZjNDNhMDY0MGJjNDQxNSIsImlhdCI6MTQ3MjY3MjUzNX0.SRsw7XSRLcFIxUorvgzcw55sn_6chYuml_ISerOKJog",
+							"description": "Custom header"
+						},
+						{
+							"name": "BigNodeI5",
+							"key": "BigNodeI5",
+							"value": "true",
+							"description": "Custom header"
+						},
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 31 Aug 2016 19:42:15 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "Vary",
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 120,
+					"body": "{\"code\":0,\"errorMessage\":\"\",\"displayMessage\":\"User logged in successfully !!!\",\"data\":{\"deviceInfo\":{\"_id\":{},\"deviceVer\":\"6\",\"deviceName\":\"iPhone\",\"osVer\":\"9.3.4\",\"osName\":\"ios\"},\"location\":{\"_id\":{},\"lat\":\"12.33\",\"lng\":\"23.333\"},\"personalInfo\":{\"_id\":{},\"imgData\":\"qwwqdwfdwfwefrwerwerwerwe\",\"fullName\":\"Gaurav V Bora\"},\"isActive\":1,\"isDeleted\":0,\"__v\":0,\"role_id\":{\"_id\":\"57c71f3450b71f1e236da53c\",\"accesslist\":[\"ALL\"],\"role_type\":\"APPLAUSE_ADMIN\",\"id\":\"57c71f3450b71f1e236da53c\"},\"password\":\"gvb\",\"appVer\":\"0.0.1\",\"email\":\"gvb@gmail.com\",\"phoneNo\":99901098990,\"createdAt\":\"2016-08-31T19:40:30.129Z\",\"updatedAt\":\"2016-08-31T19:40:30.129Z\",\"uid\":2,\"_id\":\"57c732aedfc43a0640bc4415\"}}"
+				}
+			]
+		},
+		{
+			"name": "user registration",
+			"request": {
+				"url": "http://54.173.120.23:6002/api/v1/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "deviceId",
+						"value": "asds12312323dsfsd",
+						"description": ""
+					},
+					{
+						"key": "usrType",
+						"value": "USER",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"phoneNo\": \"99901098\",\n    \"email\": \"gbb@gmail.com\",\n    \"deviceInfo\": {\n        \"osName\": \"ios\",\n        \"osVer\": \"9.3.4\",\n        \"deviceName\": \"iPhone\",\n        \"deviceVer\": \"6\"\n    },\n    \"location\": {\n        \"lng\": \"23.333\",\n        \"lat\": \"12.33\"\n    },\n    \"appVer\": \"0.0.1\",\n    \"userName\": \"gvb@gmail.com\",\n    \"password\": \"gbb\",\n    \"personalInfo\": {\n        \"fullName\": \"Gaurav V Bora\",\n        \"imgData\": \"qwwqdwfdwfwefrwerwerwerwe\"\n    },\n    \"roleId\": \"57c81c0ecb2de4700968dab1\"\n}"
+				},
+				"description": "user registration API \nPOST HTTP Method\n"
+			},
+			"response": [
+				{
+					"name": "user registration success response",
+					"originalRequest": {
+						"url": "http://localhost:6001/api/v1/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": "{\n    \"name\" : \"gvb\",\n    \"sex\" : \"1\",\n    \"dob\" : \"1993-08-18\",\n    \"dialingCode\" : \"+91\",\n    \"contactNo\" : \"9890498910\",\n    \"email\" : \"gsb@gmail.com\",\n    \"password\" : \"kpratik\",\n    \"lat\" : \"65.6565\",\n    \"lng\" : \"3.433\",\n    \"appVer\" : \"0.0.1\"\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"name": "Access-Control-Allow-Headers",
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With",
+							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "BigNodeI5",
+							"key": "BigNodeI5",
+							"value": "true",
+							"description": "Custom header"
+						},
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 18 Aug 2016 18:37:15 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "Vary",
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 76,
+					"body": "{\"error\":0,\"errorMessage\":\"\",\"displayMessage\":\"User registered successfully !!!\",\"data\":{\"id\":\"57b6005b43762dfb9fd9cab9\",\"uid\":5}}"
+				}
+			]
+		},
+		{
+			"name": "Create customer",
+			"request": {
+				"url": "http://localhost:6001/api/v1/customer",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+						"description": ""
+					},
+					{
+						"key": "deviceId",
+						"value": "sdsd6767asdsada",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Jubiliant Foods-Pune\",\n    \"add\": \"Sus road, Pashan, Pune - 411021\",\n    \"primaryContact\": {\n        \"name\": \"abcd\",\n        \"email\": \"abcd@gmail.com\",\n        \"contactNo\": \"9176234562\"\n    },\n    \"adminContact\": {\n        \"name\": \"admin\",\n        \"email\": \"admin@gmail.com\",\n        \"contactNo\": \"8401234567\"\n    }\n}"
+				},
+				"description": "customer registrations"
+			},
+			"response": [
+				{
+					"name": "customer registration success response",
+					"originalRequest": {
+						"url": "http://localhost:6001/api/v1/users/3/customer",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"warning": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+								"type": "text",
+								"enabled": true,
+								"warning": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": "{\n    \"name\": \"Jubiliant Foods-Pune\",\n    \"coAdd\": \"Sus road, Pashan, Pune - 411021\",\n    \"primaryContact\": {\n        \"name\": \"abcd\",\n        \"email\": \"abcd@gmail.com\",\n        \"contactNo\": \"9176234562\"\n    },\n    \"adminContact\": {\n        \"name\": \"admin\",\n        \"email\": \"admin@gmail.com\",\n        \"contactNo\": \"8401234567\"\n    },\n    \"brandNames\":[\n        \"starbucks\",\"ccd\"\n    ]\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"name": "Access-Control-Allow-Headers",
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With",
+							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "BigNodeI5",
+							"key": "BigNodeI5",
+							"value": "true",
+							"description": "Custom header"
+						},
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Fri, 19 Aug 2016 04:01:28 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "Vary",
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 74,
+					"body": "{\"error\":0,\"errorMessage\":\"\",\"displayMessage\":\"customer registered successfully !!!\",\"data\":{\"id\":\"57b684986b04cd75a0ea0040\",\"cid\":6}}"
+				},
+				{
+					"name": "create customer success response",
+					"originalRequest": {
+						"url": "http://localhost:6001/api/v1/users/3/customer",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+								"enabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Jubiliant Foods-Pune\",\n    \"add\": \"Sus road, Pashan, Pune - 411021\",\n    \"primaryContact\": {\n        \"name\": \"abcd\",\n        \"email\": \"abcd@gmail.com\",\n        \"contactNo\": \"9176234562\"\n    },\n    \"adminContact\": {\n        \"name\": \"admin\",\n        \"email\": \"admin@gmail.com\",\n        \"contactNo\": \"8401234567\"\n    }\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"name": "Access-Control-Allow-Headers",
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With",
+							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "BigNodeI5",
+							"key": "BigNodeI5",
+							"value": "true",
+							"description": "Custom header"
+						},
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 25 Aug 2016 11:10:56 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "Vary",
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 176,
+					"body": "{\"error\":0,\"errorMessage\":\"\",\"displayMessage\":\"customer registered successfully !!!\",\"data\":{\"id\":\"57bed24025dce2ced3a7bb3b\",\"cid\":21}}"
+				}
+			]
+		},
+		{
+			"name": "Create brand",
+			"request": {
+				"url": "http://localhost:6002/api/v1/brand",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+						"description": ""
+					},
+					{
+						"key": "deviceId",
+						"value": "1213sdfdfdfdd",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"custId\": \"57c7337209fdf7a7400a1df2\",\n    \"name\": \"starbucks-test\",\n    \"logo_img\": \"base64 encoded data\",\n    \"img_type\": \"IMAGE/JPEG\",\n    \"bckColor\": {\n        \"r\": 250,\n        \"g\": 255,\n        \"b\": 240,\n        \"a\": 230\n    },\n    \"fntColor\": {\n        \"r\": 250,\n        \"g\": 255,\n        \"b\": 240,\n        \"a\": 230\n    },\n    \"ratingImgId\": \"57c7339809fdf7a7400a1df3\",\n    \"empPersPref\": \"hobbies\",\n    \"roles\": [{\n        \"role_type\": \"chef\",\n        \"feedbackReasons\": [\n            \"Long response time\", \"Lack courtesy\", \"No Service provided\", \"xyz\", \"abc\", \"other\"\n        ],\n        \"img\": \"http://www.yahoo.com/chef\"\n    }, {\n        \"role_type\": \"waiter\",\n        \"feedbackReasons\": [\n            \"No Service provided\", \"xyz\", \"abc\", \"other\"\n        ],\n        \"img\": \"http://www.yahoo.com/waiter\"\n    }, {\n        \"role_type\": \"conceirge\",\n        \"feedbackReasons\": [\n            \"xyz\", \"abc\", \"other\"\n        ],\n        \"img\": \"http://www.yahoo.com/conceirge\"\n    }],\n    \"defaultReasons\": [\"reason1\", \"reasons2\"]\n}"
+				},
+				"description": "Brand configuration"
+			},
+			"response": [
+				{
+					"name": "create brand success response",
+					"originalRequest": {
+						"url": "http://localhost:6001/api/v1/users/3/brand",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+								"enabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"custId\": \"57bed24025dce2ced3a7bb3b\",\n    \"name\": \"starbucks\",\n    \"logo_img\": \"http://google.com/logo\",\n    \"bckColor\": {\n        \"r\": 250,\n        \"g\": 255,\n        \"b\": 240,\n        \"a\": 230\n    },\n    \"fntColor\": {\n        \"r\": 250,\n        \"g\": 255,\n        \"b\": 240,\n        \"a\": 230\n    },\n    \"ratingImgId\": 1,\n    \"empPersPref\": \"hobbies\",\n    \"feedbackReasons\": [\n        \"feed1\", \"feed2\"\n    ],\n    \"defaultReasons\": [\n        \"Long response time\", \"Lack courtesy\", \"No Service provided\", \"xyz\", \"abc\", \"other\"\n    ],\n    \"roles\": [{\n        \"role_type\": \"chef1\",\n        \"defReasons\": [\n            \"Long response time\", \"Lack courtesy\", \"No Service provided\", \"xyz\", \"abc\", \"other\"\n        ],\n        \"img\": \"http://www.yahoo.com/chef\"\n    }, {\n        \"role_type\": \"waiter1\",\n        \"defReasons\": [\n            \"No Service provided\", \"xyz\", \"abc\", \"other\"\n        ],\n        \"img\": \"http://www.yahoo.com/waiter\"\n    }, {\n        \"role_type\": \"conceirge1\",\n        \"defReasons\": [\n            \"xyz\", \"abc\", \"other\"\n        ],\n        \"img\": \"http://www.yahoo.com/conceirge\"\n    }]\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"name": "Access-Control-Allow-Headers",
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With",
+							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "BigNodeI5",
+							"key": "BigNodeI5",
+							"value": "true",
+							"description": "Custom header"
+						},
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 25 Aug 2016 11:12:06 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "Vary",
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 222,
+					"body": "{\"error\":0,\"errorMessage\":\"\",\"displayMessage\":\"brand configured successfully !!!\",\"data\":{\"id\":\"57bed286f1bb85d1d3cab851\",\"bid\":34}}"
+				}
+			]
+		},
+		{
+			"name": "Create Location",
+			"request": {
+				"url": "http://localhost:6002/api/v1/location",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+						"description": ""
+					},
+					{
+						"key": "deviceId",
+						"value": "sadsd7676sdasdas",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"custId\": \"57c7337209fdf7a7400a1df2\",   \n    \"brandId\": \"57c7cc03cf3f1a75377c645a\",\n    \"name\": \"Jubiliant Foods-Pune\",\n    \"add\": \"Sus road, Pashan, Pune - 411021\",\n    \"img\": \"base64 encoded data\",\n    \"primaryContact\": {\n        \"name\": \"abcd\",\n        \"email\": \"abcd@gmail.com\",\n        \"contactNo\": \"9176234562\"\n    },\n    \"adminContact\": {\n        \"name\": \"admin\",\n        \"email\": \"admin@gmail.com\",\n        \"contactNo\": \"8401234567\"\n    },\n    \"img_type\": \"IMAGE/PNG\"\n}"
+				},
+				"description": "Location creation       "
+			},
+			"response": [
+				{
+					"name": "create location success response",
+					"originalRequest": {
+						"url": "http://localhost:6001/api/v1/users/3/location",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+								"enabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"custId\": \"57bed24025dce2ced3a7bb3b\",   \n    \"brandId\": \"57bed286f1bb85d1d3cab851\",\n    \"name\": \"Jubiliant Foods-Pune\",\n    \"add\": \"Sus road, Pashan, Pune - 411021\",\n    \"img\": \"http://linkedin.com/locImg\",\n    \"lat\": \"43.33\",\n    \"lng\": \"23.67\",\n    \"primaryContact\": {\n        \"name\": \"abcd\",\n        \"email\": \"abcd@gmail.com\",\n        \"contactNo\": \"9176234562\"\n    },\n    \"adminContact\": {\n        \"name\": \"admin\",\n        \"email\": \"admin@gmail.com\",\n        \"contactNo\": \"8401234567\"\n    }\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"name": "Access-Control-Allow-Headers",
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With",
+							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "BigNodeI5",
+							"key": "BigNodeI5",
+							"value": "true",
+							"description": "Custom header"
+						},
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 25 Aug 2016 11:12:52 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "Vary",
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 106,
+					"body": "{\"error\":0,\"errorMessage\":\"\",\"displayMessage\":\"location created successfully !!!\",\"data\":{\"id\":\"57bed2b4f1bb85d1d3cab855\",\"lid\":3}}"
+				}
+			]
+		},
+		{
+			"name": "Create Employee Indiviual",
+			"request": {
+				"url": "http://localhost:6002/api/v1/employee",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+						"description": ""
+					},
+					{
+						"key": "deviceId",
+						"value": "asdad2321321313",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"brandId\": \"57bed286f1bb85d1d3cab851\",\n    \"locId\": \"57bed2b4f1bb85d1d3cab855\",\n    \"fullName\": {\n        \"fname\": \"Gaurav\",\n        \"lname\": \"V Bora\"\n    },\n    \"empId\": \"J106\",\n    \"img\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAu4AAAU2CAIAAABFtaRRAAAAAXNSR0IArs4c6QAAAe9pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIgogICAgICAgICAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyI+CiAgICAgICAgIDxwaG90b3Nob3A6RGF0ZUNyZWF0ZWQ+MjAxNi0wMS0xMlQxMjowOToyNzwvcGhvdG9zaG9wOkRhdGVDcmVhdGVkPgogICAgICAgICA8ZXhpZjpVc2VyQ29tbWVudD5TY3JlZW5zaG90PC9leGlmOlVzZXJDb21tZW50PgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KwIimsQAAQABJREFUeAHsvQd0Y9l2nik5znjGyx577FkarVmjp2RZsiRL8kijsS1rFJ66X/d7HaurWMWcc84kEkkQJAgSgQQIgCQAIhIEQYA5gznnnDOLlau6uzq9JM8+51xcosiq6i6pX2vsPr3Owju8vLwgNh7qfvz3v/f+uZ+j/9EI0AjQCNAI0AjQCNAI0AjQCNAI0AjQCNAI0AjQCNAI0AjQCNAI0AjQCNAI0AjQCNAI0AjQCN\",\n    \"beaconId\": \"ABCD-12396\",\n    \"roleId\": \"57c13b7591be76b608b0b2d1\",\n    \"prefix\": {\n        \"key\": \"hobbies\",\n        \"value\": \"keyboard\"\n    },\n    \"startDt\": \"05-08-2013\",\n    \"img_type\": \"IMAGE/PNG\"\n}"
+				},
+				"description": "Indiviual Employee on-boarding POST API"
+			},
+			"response": [
+				{
+					"name": "create employee success response",
+					"originalRequest": {
+						"url": "http://localhost:6001/api/v1/users/3/employee",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"enabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+								"type": "text",
+								"enabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"brandId\": \"57bed286f1bb85d1d3cab851\",\n    \"locId\": \"57bed2b4f1bb85d1d3cab855\",\n    \"fullName\": {\n        \"fname\": \"Gaurav\",\n        \"lname\": \"V Bora\"\n    },\n    \"empId\": \"J101\",\n    \"img\": \"http://linkedin.com/locImg\",\n    \"beaconId\": \"ABCD-12390\",\n    \"roleId\": \"57bbf7d82f7e58f9ae679929\",\n    \"prefix\": {\n        \"key\": \"hobbies\",\n        \"value\": \"keyboard\"\n    },\n    \"startDt\": \"05-08-2013\"\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"name": "Access-Control-Allow-Headers",
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With",
+							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "BigNodeI5",
+							"key": "BigNodeI5",
+							"value": "true",
+							"description": "Custom header"
+						},
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 25 Aug 2016 11:14:24 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "Vary",
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 84,
+					"body": "{\"error\":0,\"errorMessage\":\"\",\"displayMessage\":\"employee onboarded successfully !!!\",\"data\":{\"id\":\"57bed310f1bb85d1d3cab857\",\"eid\":18}}"
+				}
+			]
+		},
+		{
+			"name": "Fetch Employee profiles based upon searchparams / employee unique Id",
+			"request": {
+				"url": "http://localhost:6002/api/v1/employee/?beaconId=ABCD-12396&57bed286f1bb85d1d3cab851",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+						"description": ""
+					},
+					{
+						"key": "usrType",
+						"value": "GS",
+						"description": ""
+					},
+					{
+						"key": "deviceId",
+						"value": "dADsd34342432wewe",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Employee fetch profiles - \n\nsearch parameters (csv format for multiple parameters) Allowed combinations for search params - \n1. employee Unique Id\n2. BrandId\n3. empId and BrandId\n4. locationId\n5. beaconId"
+			},
+			"response": [
+				{
+					"name": "fetch employee success response",
+					"originalRequest": {
+						"url": "http://localhost:6001/api/v1/employee/?beaconId=ABCD-12396&57bed286f1bb85d1d3cab851",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+								"enabled": true
+							},
+							{
+								"key": "usrType",
+								"value": "GS",
+								"enabled": true
+							},
+							{
+								"key": "deviceId",
+								"value": "dADsd34342432wewe",
+								"enabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"name": "Access-Control-Allow-Headers",
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With",
+							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "BigNodeI5",
+							"key": "BigNodeI5",
+							"value": "true",
+							"description": "Custom header"
+						},
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 27 Aug 2016 08:45:37 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "Vary",
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 35,
+					"body": "{\"code\":0,\"errorMessage\":\"\",\"displayMessage\":\"employee fetched successfully !!!\",\"data\":[{\"eid\":23,\"brandId\":\"57bed286f1bb85d1d3cab851\",\"locationId\":\"57bed2b4f1bb85d1d3cab855\",\"img\":\"http://linkedin.com/locImg\",\"employeeId\":\"J106\",\"roleId\":{\"_id\":\"57c13b7591be76b608b0b2d1\",\"role_type\":\"conceirge\",\"img\":\"http://www.yahoo.com/conceirge\",\"feedbackReasons\":[\"xyz\",\"abc\",\"other\"]},\"startDt\":\"2013-05-07T18:30:00.000Z\",\"beaconId\":\"ABCD-12396\",\"feedback\":null,\"prefix\":{\"key\":\"HOBBIES\",\"value\":\"KEYBOARD\"},\"fullName\":{\"fname\":\"GAURAV\",\"lname\":\"V BORA\",\"full\":\"GAURAV V BORA\"},\"id\":\"57c13c0991be76b608b0b2d3\"}]}"
+				}
+			]
+		},
+		{
+			"name": "Fetch Brand Details",
+			"request": {
+				"url": "http://localhost:6002/api/v1/brand/?custId=57c7337209fdf7a7400a1df2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+						"description": ""
+					},
+					{
+						"key": "deviceId",
+						"value": "sdssd778sdss",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Fetch Brand Details based upon - \n\n1. Search parameters - \n    no search paramerters yet determined\n2. Brand Id - Id mentioned in the leaf of path\n\nFetch all Brand Details - \n1. No brand Id / search parameters will fetch all the brand Details"
+			},
+			"response": [
+				{
+					"name": "fetch brand details success",
+					"originalRequest": {
+						"url": "http://localhost:6002/api/v1/brand/?custId=57c7337209fdf7a7400a1df2",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+								"enabled": true
+							},
+							{
+								"key": "deviceId",
+								"value": "sdssd778sdss",
+								"enabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"name": "Access-Control-Allow-Headers",
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With, Content-Type, Authorization",
+							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "Access-Control-Expose-Headers",
+							"key": "Access-Control-Expose-Headers",
+							"value": "X-Requested-With, Content-Type, Authorization",
+							"description": "Lets a server whitelist headers that browsers are allowed to access."
+						},
+						{
+							"name": "BigNodeI5",
+							"key": "BigNodeI5",
+							"value": "true",
+							"description": "Custom header"
+						},
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Encoding",
+							"key": "Content-Encoding",
+							"value": "gzip",
+							"description": "The type of encoding used on the data."
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 01 Sep 2016 06:42:58 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "Vary",
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 116,
+					"body": "{\"code\":0,\"errorMessage\":\"\",\"displayMessage\":\"brand details fetched successfully !!!\",\"data\":[{\"bid\":54,\"updatedAt\":\"2016-09-01T06:34:43.135Z\",\"createdAt\":\"2016-09-01T06:34:43.135Z\",\"name\":\"STARBUCKS\",\"ratingImgId\":\"57c7339809fdf7a7400a1df3\",\"customer\":\"57c7337209fdf7a7400a1df2\",\"logo_img\":\"http://54.173.120.23:6002/Westin_logo.png\",\"empPersonlizationPrefix\":\"hobbies\",\"isDeleted\":0,\"isActive\":1,\"locations\":[],\"roles\":[{\"_id\":\"57c7cc03cf3f1a75377c6457\",\"role_type\":\"chef\",\"img\":\"http://www.yahoo.com/chef\",\"feedbackReasons\":[\"Long response time\",\"Lack courtesy\",\"No Service provided\",\"xyz\",\"abc\",\"other\"]},{\"_id\":\"57c7cc03cf3f1a75377c6458\",\"role_type\":\"waiter\",\"img\":\"http://www.yahoo.com/waiter\",\"feedbackReasons\":[\"No Service provided\",\"xyz\",\"abc\",\"other\"]},{\"_id\":\"57c7cc03cf3f1a75377c6459\",\"role_type\":\"conceirge\",\"img\":\"http://www.yahoo.com/conceirge\",\"feedbackReasons\":[\"xyz\",\"abc\",\"other\"]}],\"defaultReasons\":[\"reason1\",\"reasons2\"],\"fontColor\":{\"r\":250,\"g\":255,\"b\":240,\"a\":230},\"backgroundColor\":{\"r\":250,\"g\":255,\"b\":240,\"a\":230},\"id\":\"57c7cc03cf3f1a75377c645a\"},{\"bid\":55,\"updatedAt\":\"2016-09-01T06:34:52.891Z\",\"createdAt\":\"2016-09-01T06:34:52.891Z\",\"name\":\"STARBUCKS-TEST\",\"ratingImgId\":\"57c7339809fdf7a7400a1df3\",\"customer\":\"57c7337209fdf7a7400a1df2\",\"logo_img\":\"http://54.173.120.23:6002/Westin_logo.png\",\"empPersonlizationPrefix\":\"hobbies\",\"isDeleted\":0,\"isActive\":1,\"locations\":[],\"roles\":[{\"_id\":\"57c7cc0ccf3f1a75377c645b\",\"role_type\":\"chef\",\"img\":\"http://www.yahoo.com/chef\",\"feedbackReasons\":[\"Long response time\",\"Lack courtesy\",\"No Service provided\",\"xyz\",\"abc\",\"other\"]},{\"_id\":\"57c7cc0ccf3f1a75377c645c\",\"role_type\":\"waiter\",\"img\":\"http://www.yahoo.com/waiter\",\"feedbackReasons\":[\"No Service provided\",\"xyz\",\"abc\",\"other\"]},{\"_id\":\"57c7cc0ccf3f1a75377c645d\",\"role_type\":\"conceirge\",\"img\":\"http://www.yahoo.com/conceirge\",\"feedbackReasons\":[\"xyz\",\"abc\",\"other\"]}],\"defaultReasons\":[\"reason1\",\"reasons2\"],\"fontColor\":{\"r\":250,\"g\":255,\"b\":240,\"a\":230},\"backgroundColor\":{\"r\":250,\"g\":255,\"b\":240,\"a\":230},\"id\":\"57c7cc0ccf3f1a75377c645e\"}]}"
+				}
+			]
+		},
+		{
+			"name": "Fetch Employee profiles based upon location Id",
+			"request": {
+				"url": "http://localhost:6001/api/v1/employee/?locationId=57bed2b4f1bb85d1d3cab855",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Employee fetch profiles - \n\nsearch parameters (csv format for multiple parameters) Allowed combinations for search params - \n1. employee Unique Id\n2. BrandId\n3. empId and BrandId\n4. locationId\n5. beaconId"
+			},
+			"response": [
+				{
+					"name": "employee fetch success response",
+					"originalRequest": {
+						"url": "http://localhost:6001/api/v1/employee/?locationId=57bed2b4f1bb85d1d3cab855",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+								"enabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"name": "Access-Control-Allow-Headers",
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With",
+							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "BigNodeI5",
+							"key": "BigNodeI5",
+							"value": "true",
+							"description": "Custom header"
+						},
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Encoding",
+							"key": "Content-Encoding",
+							"value": "gzip",
+							"description": "The type of encoding used on the data."
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 27 Aug 2016 08:44:09 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "Vary",
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 39,
+					"body": "{\"code\":0,\"errorMessage\":\"\",\"displayMessage\":\"employee fetched successfully !!!\",\"data\":[{\"eid\":18,\"brandId\":\"57bed286f1bb85d1d3cab851\",\"employeeId\":\"J101\",\"roleId\":null,\"startDt\":\"2013-05-07T18:30:00.000Z\",\"beaconId\":\"ABCD-12390\",\"feedback\":null,\"fullName\":{\"fname\":\"GAURAV\",\"lname\":\"V BORA\",\"full\":\"GAURAV V BORA\"},\"id\":\"57bed310f1bb85d1d3cab857\"},{\"eid\":19,\"brandId\":\"57bed286f1bb85d1d3cab851\",\"img\":\"http://linkedin.com/locImg\",\"employeeId\":\"J102\",\"roleId\":null,\"startDt\":\"2013-05-07T18:30:00.000Z\",\"beaconId\":\"ABCD-12391\",\"feedback\":null,\"fullName\":{\"fname\":\"GAURAV\",\"lname\":\"V BORA\",\"full\":\"GAURAV V BORA\"},\"id\":\"57bfc171182380b7f4a23c31\"},{\"eid\":20,\"brandId\":\"57bed286f1bb85d1d3cab851\",\"img\":\"http://linkedin.com/locImg\",\"employeeId\":\"J103\",\"roleId\":null,\"startDt\":\"2013-05-07T18:30:00.000Z\",\"beaconId\":\"ABCD-12392\",\"feedback\":null,\"fullName\":{\"fname\":\"GAURAV\",\"lname\":\"V BORA\",\"full\":\"GAURAV V BORA\"},\"id\":\"57bfc6b8003038f1fb259faf\"},{\"eid\":21,\"brandId\":\"57bed286f1bb85d1d3cab851\",\"img\":\"http://linkedin.com/locImg\",\"employeeId\":\"J104\",\"roleId\":null,\"startDt\":\"2013-05-07T18:30:00.000Z\",\"beaconId\":\"ABCD-12393\",\"feedback\":null,\"prefix\":{\"key\":\"HOBBIES\",\"value\":\"KEYBOARD\"},\"fullName\":{\"fname\":\"GAURAV\",\"lname\":\"V BORA\",\"full\":\"GAURAV V BORA\"},\"id\":\"57c014280c0d92a74db51f07\"},{\"eid\":22,\"brandId\":\"57bed286f1bb85d1d3cab851\",\"locationId\":\"57bed2b4f1bb85d1d3cab855\",\"img\":\"http://linkedin.com/locImg\",\"employeeId\":\"J105\",\"roleId\":null,\"startDt\":\"2013-05-07T18:30:00.000Z\",\"beaconId\":\"ABCD-12395\",\"feedback\":null,\"prefix\":{\"key\":\"HOBBIES\",\"value\":\"KEYBOARD\"},\"fullName\":{\"fname\":\"GAURAV\",\"lname\":\"V BORA\",\"full\":\"GAURAV V BORA\"},\"id\":\"57c13a11891cfd6d06a17475\"},{\"eid\":23,\"brandId\":\"57bed286f1bb85d1d3cab851\",\"locationId\":\"57bed2b4f1bb85d1d3cab855\",\"img\":\"http://linkedin.com/locImg\",\"employeeId\":\"J106\",\"roleId\":{\"_id\":\"57c13b7591be76b608b0b2d1\",\"role_type\":\"conceirge\",\"img\":\"http://www.yahoo.com/conceirge\",\"feedbackReasons\":[\"xyz\",\"abc\",\"other\"]},\"startDt\":\"2013-05-07T18:30:00.000Z\",\"beaconId\":\"ABCD-12396\",\"feedback\":null,\"prefix\":{\"key\":\"HOBBIES\",\"value\":\"KEYBOARD\"},\"fullName\":{\"fname\":\"GAURAV\",\"lname\":\"V BORA\",\"full\":\"GAURAV V BORA\"},\"id\":\"57c13c0991be76b608b0b2d3\"}]}"
+				}
+			]
+		},
+		{
+			"name": "submit feedback",
+			"request": {
+				"url": "http://54.173.120.23:6002/api/v1/feedback",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJkZXZpY2VJbmZvIjp7Il9pZCI6e30sImRldmljZVZlciI6IjYiLCJkZXZpY2VOYW1lIjoiaVBob25lIiwib3NWZXIiOiI5LjMuNCIsIm9zTmFtZSI6ImlvcyJ9LCJsb2NhdGlvbiI6eyJfaWQiOnt9LCJsYXQiOiIxMi4zMyIsImxuZyI6IjIzLjMzMyJ9LCJwZXJzb25hbEluZm8iOnsiX2lkIjp7fSwiaW1nRGF0YSI6InF3d3Fkd2Zkd2Z3ZWZyd2Vyd2Vyd2Vyd2UiLCJmdWxsTmFtZSI6IkdhdXJhdiBWIEJvcmEifSwicm9sZV9pZCI6MSwiaXNBY3RpdmUiOjEsImlzRGVsZXRlZCI6MCwiX192IjowLCJwYXNzd29yZCI6ImFzZGYiLCJhcHBWZXIiOiIwLjAuMSIsImVtYWlsIjoiZ2JoQGdtYWlsLmNvbSIsInBob25lTm8iOjk5OTAxMDk4OTkwLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTI1VDExOjU2OjQwLjQxNloiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTI1VDExOjU2OjQwLjQxNloiLCJ1aWQiOjExLCJfaWQiOiI1N2JlZGNmODg1ZGZiYTQ5ZDRhOTZkMjkiLCJpYXQiOjE0NzI2NTkzMjN9.EjlY2fKHmOs-pOoVUM4YL6Q7envsgsmW6o_Gd6lwhW8",
+						"description": ""
+					},
+					{
+						"key": "deviceId",
+						"value": "sdsdsdfsfsdfsdfsdf",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"euId\": \"57c5adb851314cc00d4b75e1\",\n\"ratingVal\": 5,\n\"feedbackReasons\": [\n\"catering\",\n\"less waiting\"\n],\n\"additionalComment\": \"Best service\"\n}"
+				},
+				"description": "submit Feedback for a employee from user\n- \nMandatory Inputs - \nemployee unique Id - euId\nrating - (1-5) assumed integer\nfeedbackReasons - Array of reasons\ncomment - Any other comment string (max char allowed -100)"
+			},
+			"response": []
+		},
+		{
+			"name": "Guest User login",
+			"request": {
+				"url": "http://localhost:6001/api/v1/guest/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "usrType",
+						"value": "GS",
+						"description": ""
+					},
+					{
+						"key": "deviceId",
+						"value": "sdwds12312321312nmk",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"deviceInfo\": {\n        \"osName\": \"ios\",\n        \"osVer\": \"9.3.4\",\n        \"deviceName\": \"iPhone\",\n        \"deviceVer\": \"6\"\n    },\n    \"appVer\": \"0.0.1\"\n}"
+				},
+				"description": "Guest User login service\n\nuse the response header for further requests\n\nMandatory Headers - \nusrType - \"GS\"\ndeviceId - "
+			},
+			"response": [
+				{
+					"name": "guest user login success response",
+					"originalRequest": {
+						"url": "http://localhost:6001/api/v1/guest/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"warning": ""
+							},
+							{
+								"key": "usrType",
+								"value": "GS",
+								"type": "text",
+								"enabled": true,
+								"warning": ""
+							},
+							{
+								"key": "deviceId",
+								"value": "sdwds12312321312nmk",
+								"type": "text",
+								"enabled": true,
+								"warning": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": "{\n    \"deviceInfo\": {\n        \"osName\": \"ios\",\n        \"osVer\": \"9.3.4\",\n        \"deviceName\": \"iPhone\",\n        \"deviceVer\": \"6\"\n    },\n    \"appVer\": \"0.0.1\"\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "javascript",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"name": "Access-Control-Allow-Headers",
+							"key": "Access-Control-Allow-Headers",
+							"value": "X-Requested-With",
+							"description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+						},
+						{
+							"name": "Access-Control-Allow-Origin",
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+						},
+						{
+							"name": "Authorization",
+							"key": "Authorization",
+							"value": "Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyIkX18iOnsic3RyaWN0TW9kZSI6dHJ1ZSwiaW5zZXJ0aW5nIjp0cnVlLCJnZXR0ZXJzIjp7ImRldmljZUluZm8iOnsiX2lkIjp7fSwiZGV2aWNlVmVyIjoiNiIsImRldmljZU5hbWUiOiJpUGhvbmUiLCJvc1ZlciI6IjkuMy40Iiwib3NOYW1lIjoiaW9zIn0sImxvY2F0aW9uIjp7Il9pZCI6e319fSwid2FzUG9wdWxhdGVkIjpmYWxzZSwic2NvcGUiOnsiX192IjowLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTI2VDA5OjUxOjUzLjU5MloiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTI2VDA5OjUxOjUzLjU5MloiLCJhcHBWZXIiOiIwLjAuMSIsIl9pZCI6IjU3YzAxMTM5MDU1ZGM5Y2I0OWIzZjIyNyIsInJvbGVfaWQiOjAsImRldmljZUluZm8iOnsib3NOYW1lIjoiaW9zIiwib3NWZXIiOiI5LjMuNCIsImRldmljZU5hbWUiOiJpUGhvbmUiLCJkZXZpY2VWZXIiOiI2In19LCJhY3RpdmVQYXRocyI6eyJwYXRocyI6e30sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6e30sIm1vZGlmeSI6e30sInJlcXVpcmUiOnt9fSwic3RhdGVOYW1lcyI6WyJyZXF1aXJlIiwibW9kaWZ5IiwiaW5pdCIsImRlZmF1bHQiLCJpZ25vcmUiXX0sImVtaXR0ZXIiOnsiZG9tYWluIjpudWxsLCJfZXZlbnRzIjp7fSwiX2V2ZW50c0NvdW50IjowLCJfbWF4TGlzdGVuZXJzIjowfX0sImlzTmV3IjpmYWxzZSwiX2RvYyI6eyJkZXZpY2VJbmZvIjp7Il9pZCI6e30sImRldmljZVZlciI6IjYiLCJkZXZpY2VOYW1lIjoiaVBob25lIiwib3NWZXIiOiI5LjMuNCIsIm9zTmFtZSI6ImlvcyJ9LCJsb2NhdGlvbiI6eyJfaWQiOnt9fSwicm9sZV9pZCI6MCwiX2lkIjoiNTdjMDExMzkwNTVkYzljYjQ5YjNmMjI3IiwiYXBwVmVyIjoiMC4wLjEiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTI2VDA5OjUxOjUzLjU5MloiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTI2VDA5OjUxOjUzLjU5MloiLCJfX3YiOjB9LCJfcHJlcyI6eyIkX19vcmlnaW5hbF9zYXZlIjpbbnVsbCxudWxsLG51bGxdLCIkX19vcmlnaW5hbF92YWxpZGF0ZSI6W251bGxdLCIkX19vcmlnaW5hbF9yZW1vdmUiOltudWxsXX0sIl9wb3N0cyI6eyIkX19vcmlnaW5hbF9zYXZlIjpbXSwiJF9fb3JpZ2luYWxfdmFsaWRhdGUiOltdLCIkX19vcmlnaW5hbF9yZW1vdmUiOltdfSwiaWF0IjoxNDcyMjA1MTEzfQ.a1vO1a9jRHG1_CTPetxLcVvHtecvC3iovxPE1JCE-i4",
+							"description": "Custom header"
+						},
+						{
+							"name": "BigNodeI5",
+							"key": "BigNodeI5",
+							"value": "true",
+							"description": "Custom header"
+						},
+						{
+							"name": "Cache-Control",
+							"key": "Cache-Control",
+							"value": "no-cache",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"name": "Connection",
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Fri, 26 Aug 2016 09:51:53 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Transfer-Encoding",
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"name": "Vary",
+							"key": "Vary",
+							"value": "Accept-Encoding",
+							"description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+						},
+						{
+							"name": "X-Powered-By",
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+						}
+					],
+					"cookie": [],
+					"responseTime": 217,
+					"body": "{\"code\":0,\"errorMessage\":\"\",\"displayMessage\":\"Guest user saved in successfully !!!\",\"data\":{\"__v\":0,\"updatedAt\":\"2016-08-26T09:51:53.592Z\",\"createdAt\":\"2016-08-26T09:51:53.592Z\",\"appVer\":\"0.0.1\",\"_id\":\"57c01139055dc9cb49b3f227\",\"role_id\":0,\"deviceInfo\":{\"osName\":\"ios\",\"osVer\":\"9.3.4\",\"deviceName\":\"iPhone\",\"deviceVer\":\"6\"}}}"
+				}
+			]
+		},
+		{
+			"name": "Fetch Location details",
+			"request": {
+				"url": "http://localhost:6002/api/v1/location/57c68947e5b1789fe329e846",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+						"description": ""
+					},
+					{
+						"key": "deviceId",
+						"value": "sadsd7676sdasdas",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Fetch Location details based upon -\n\nSearch parammeters - (csv format)\n1. brandId \n2. unique location id in API path"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Role Details",
+			"request": {
+				"url": "http://localhost:6001/api/v1/role?roleId=57c6893fe5b1789fe329e844",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyb2xlX2lkIjoxLCJsb2NhdGlvbiI6eyJsbmciOiIzLjQzMyIsImxhdCI6IjY1LjY1NjUifSwiaXNBY3RpdmUiOjAsImlzRGVsZXRlZCI6MCwiYXBwRGV0YWlscyI6eyJ2ZXJzaW9uIjoiMC4wLjEifSwiX192IjowLCJkb2IiOiIxOTkzLTA4LTE4VDAwOjAwOjAwLjAwMFoiLCJzZXgiOiIxIiwiY29udGFjdE5vIjo5ODkwMDk4OTAwLCJkaWFsaW5nQ29kZSI6Iis5MSIsInBhc3N3b3JkIjoia3ByYXRpayIsImVtYWlsIjoiZ3ZiQGdtYWlsLmNvbSIsIm5hbWUiOiJndmIiLCJjcmVhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1cGRhdGVkQXQiOiIyMDE2LTA4LTE4VDE4OjIyOjQ5LjE1OFoiLCJ1aWQiOjMsIl9pZCI6IjU3YjVmY2Y5MDI3Nzg2N2Y5ZTYxYWIxNSIsImlhdCI6MTQ3MTU3OTE3Mn0.MrXeHoZLej68J2OIOQFAfN07FM8rVfj1-qEhCMKjP-o",
+						"description": ""
+					},
+					{
+						"key": "deviceId",
+						"value": "sadsd7676sdasdas",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Fetch Roles for Brands\n\n1. Search Parameters (csv format for multiple)\n    1. roleId\n        OR\n    2. brandId\n2. unique role Id"
+			},
+			"response": []
+		},
+		{
+			"name": "System User Role Definition",
+			"request": {
+				"url": "http://54.173.120.23:6002/api/v1/userRole/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"role_type\": \"applause_admin\",\n    \"accessList\" : [\"ALL\"]\n}"
+				},
+				"description": "Define System User Roles and the access list for the same\n\nList defined here must be maintained as ENUM in code.. So, new ROLE and accesslist added here must be Matched with Code ENUM"
+			},
+			"response": []
+		},
+		{
+			"name": "System User Role Fetch Details",
+			"request": {
+				"url": "http://localhost:6002/api/v1/userRole/57c71f3450b71f1e236da53c",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Save Rating",
+			"request": {
+				"url": "http://localhost:6002/api/v1/rating",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"stars\",\n    \"count\": 5,\n    \"img\": null\n}"
+				},
+				"description": "Save ratings in Database\n\nRatings used for submitting feedback and creating brand"
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Ratoings",
+			"request": {
+				"url": "http://localhost:6002/api/v1/rating",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Fetch Ratings "
+			},
+			"response": []
+		}
+	]
+}

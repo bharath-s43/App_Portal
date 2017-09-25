@@ -1,0 +1,42 @@
+<div ng-controller="beaconCtrl" ng-click="" ng-init="populateCustomersDropdown()" style="margin-top:60px">
+<div id="res"></div>
+
+	<div class="headerMessage" >
+				<div class="alert alert-success" ng-show="showSuccessAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+				     <strong>{{successTextAlert}}</strong> 
+				</div>
+				<div class="alert alert-danger" ng-show="showFailureAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+				     <strong>{{failureTextAlert}}</strong>
+				</div>
+	</div>
+
+<div class="wrapper"> 
+		<div class="">
+		<div class="col-xs-9 col-md-11 pull-md-3" data-example-id="">
+		<h3>Assign Beacons Indiviual</h3>
+		</div>		
+
+		<div class="col-xs-9 col-md-11 pull-md-3 workArea" data-example-id="" style="margin-top:60px">
+			<form name="beaconForm">	
+				<div class="form-group row">
+				  <label for="beaconId" class="col-xs-3 col-form-label ">Beacon Id</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="beacon.beaconId" type="text" min="3" max="60" maxlength="60"  ng-minlength="3" ng-maxlength="60" title="Minimum 3 to 60 charecters" ngTrim="true" name="beaconId"  ng-focus="visited_beaconId = false" ng-blur="visited_beaconId = true"   placeholder="Beacon unique identifier/UUID" required>
+					    <span class='validationError' ng-show="visited_beaconId && beaconForm.beaconId.$touched && (beaconForm.beaconId.$error.required || beaconForm.beaconId.$valid == false)">*Beacon Id requires minimum 3 to 60 charecters.
+					    </span>
+					  </div>
+				</div>
+				<div class="form-group row">
+					<br>
+					  <button type="button" class="btn btn-default btn-list-view  pull-right" ng-disabled="beaconForm.$invalid" ng-click="postIndAction('assign')">Save</button>
+					  <button type="submit"  id="cancelModal" class="btn btn-default btn-list-view  pull-right" style="margin-right:5px"
+				 ng-click="showCancelModal()">Cancel</button>
+				</div>
+			</form>
+		</div>	
+	</div>
+</div>
+
+</div>

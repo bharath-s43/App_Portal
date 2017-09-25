@@ -1,0 +1,125 @@
+<div ng-controller="custCtrl" ng-click="" ng-init="initCustCreateAndEdit()" style="margin-top:60px">
+<div id="res"></div>
+
+	<div class="headerMessage">
+		<div class="alert alert-success" ng-show="showSuccessAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+		     <strong>{{successTextAlert}}</strong> 
+		</div>
+		<div class="alert alert-danger" ng-show="showFailureAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+		     <strong>{{failureTextAlert}}</strong>
+		</div>
+	</div>
+
+<div class="wrapper">
+	<div class="">
+		<!-- <div class="alert alert-success" ng-show="showSuccessAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button>
+		     <strong>{{successTextAlert}}</strong>
+		</div>
+		<div class="alert alert-danger" ng-show="showFailureAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button>
+		     <strong>{{failureTextAlert}}</strong>
+		</div> -->
+		<div class="col-xs-9 col-md-11 pull-md-3" data-example-id="" >
+			<h3 ng-if="!company.isEditCompany" style="float:left;">Create Customer</h3>
+			<h3 ng-if="company.isEditCompany" style="float:left;">Edit Customer</h3>
+		</div>
+		<div ng-hide="loaded" class="se-pre-con1">
+		</div>
+		
+		<div class="col-xs-9 col-md-11 pull-md-3 workArea" data-example-id="">
+			<form name="customerForm">
+				<div class="form-group row">
+				  <label for="cname" class="col-xs-3 col-form-label mandatory">Company Name</label>
+				  <div class="col-xs-9">
+				    <input class="form-control" value="" ng-model="company.name" type="text" title="Minimum 3 to 80 characters" ng-minlength="3" ng-maxlength="80" required="true" ngTrim="true" placeholder="Company name" name="cname" ng-focus="visited_cname = false" ng-blur="visited_cname = true"
+				    ng-pattern="/^[a-zA-Z0-9'&,. /-]*$/">
+				    <span class='validationError' ng-show="visited_cname && customerForm.cname.$touched && (customerForm.cname.$error.required || customerForm.cname.$valid==false)">*Company name required 3 to 80 characters.
+				    </span>
+				    <span class='validationError' ng-show="customerForm.cname.$touched && customerForm.cname.$error.pattern">*Special characters are not allowed.
+				    </span>
+				  </div>
+				</div>
+				<div class="form-group row">
+				  <label for="caddress" style="top:20px; " class="col-xs-3 col-form-label">Address</label>
+				  <div class="col-xs-9">
+				  	<textarea class="form-control" rows="3" ng-model="company.add" title="Minimum 3 to 300 characters" placeholder="Company address" ngTrim="true"></textarea>
+				  </div>
+				</div>
+				<div class="form-group row">
+				  <div class="col-xs-1"> </div>
+				  <label class="col-xs-3 col-form-label" style="text-align:left;width:auto;">Primary Contact Details</label>
+				</div>
+				<div class="form-group row">
+					<div class="form-group row">
+					  <label for="cpname" class="col-xs-3 col-form-label" ng-class="company.primaryContact.email ? 'mandatory' : ''">Name</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="company.primaryContact.name" type="text" title="Minimum 3 to 80 characters" ng-minlength="3" ng-maxlength="80" placeholder="Primary contact name" ngTrim="true" name="cpname" ng-focus="visited_cpname = false" ng-blur="visited_cpname = true" ng-pattern="/^[a-zA-Z0-9' ]*$/" ng-required="company.primaryContact.email">
+					    <!-- <span class='validationError' ng-show="visited_cpname && customerForm.cpname.$touched && (customerForm.cpname.$error.required || customerForm.cpname.$valid==false)">*Name required 3 to 80 characters.
+					    </span> -->
+					    <span class='validationError' ng-show="customerForm.cpname.$touched && customerForm.cpname.$error.pattern">*Special characters are not allowed.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="cpemail" class="col-xs-3 col-form-label">Email</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="company.primaryContact.email" type="email"  placeholder="Primary contact email address" ngTrim="true" ng-focus="visited_cpemail = false" ng-blur="visited_cpemail = true" ng-pattern="/^[a-zA-Z]*[a-zA-Z0-9._]+@[a-zA-Z]+\.[a-zA-Z.]{2,5}$/" name="cpemail" ng-disabled="!userAccess.Customers.editEmail">
+					    <span class='validationError' ng-show="visited_cpemail && customerForm.cpemail.$touched && (customerForm.cpemail.$error.email || customerForm.cpemail.$error.pattern)">*Enter a valid email address.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="cptel" class="col-xs-3 col-form-label">Phone Number</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="company.primaryContact.contactNo" type="text" ngTrim="true" name="cptel" ng-pattern="/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/" placeholder="(xxx) xxx-xxxx OR xxx-xxx-xxxx OR xxxxxxxxxx (10 digits)">
+					    <span class='validationError' ng-show="customerForm.cptel.$touched && customerForm.cptel.$error.pattern">*Enter a valid phone number.
+					    </span>
+					  </div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-xs-1"> </div>
+				  <label class="col-xs-3 col-form-label" style="text-align:left;width:auto;">Admin Contact Details</label>
+				</div>
+				<div class="form-group row">
+					<div class="form-group row">
+					  <label for="caname" class="col-xs-3" ng-class="company.adminContact.email ? 'mandatory' : ''">Name</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="company.adminContact.name" type="text" maxlength="80" ng-minlength="3" ng-maxlength="80" title="Minimum 3 to 80 characters"  ngTrim="true" placeholder="Administrator name" name="caname" ng-focus="visited_caname = false" ng-blur="visited_caname = true" ng-pattern="/^[a-zA-Z0-9' ]*$/" ng-required="company.adminContact.email">
+					    <span class='validationError' ng-show="customerForm.caname.$touched && customerForm.caname.$error.pattern">*Special characters are not allowed.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="caemail" class="col-xs-3">Email</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="company.adminContact.email" type="email"   ngTrim="true" ng-focus="visited_caemail = false" ng-blur="visited_caemail = true" ng-pattern="/^[a-zA-Z]*[a-zA-Z0-9._]+@[a-zA-Z]+\.[a-zA-Z.]{2,5}$/" name="caemail" placeholder="Administrator email address" ng-disabled="!userAccess.Customers.editEmail">
+					    <span class='validationError' ng-show="visited_caemail && customerForm.caemail.$touched && (customerForm.caemail.$error.email || customerForm.caemail.$error.pattern)">*Enter a valid email address.
+					    </span>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="catel" class="col-xs-3">Phone Number</label>
+					  <div class="col-xs-9">
+					    <input class="form-control" value="" ng-model="company.adminContact.contactNo" type="text"   ngTrim="true" name="catel" ng-pattern="/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/" placeholder="(xxx) xxx-xxxx OR xxx-xxx-xxxx OR xxxxxxxxxx (10 digits)">
+					    <span class='validationError' ng-show="customerForm.catel.$touched && customerForm.catel.$error.pattern">*Enter a valid phone number.
+					    </span>
+					  </div>
+					</div>
+				</div>
+				<div class="form-group row">
+				<br>
+				  <button ng-if="!company.isEditCompany" type="submit" class="btn btn-default btn-list-view  pull-right" ng-disabled="customerForm.$invalid" ng-click="submitCustomer(company)">Save</button>
+				  <button ng-if="company.isEditCompany" type="submit" class="btn btn-default btn-list-view  pull-right" ng-disabled="customerForm.$invalid || customerForm.$pristine" ng-click="editCustomer(company)">Update</button>
+				  <button type="submit" id="cancelModal" class="btn btn-default btn-list-view  pull-right" style="margin-right:5px"
+				 ng-click="showCancelModal()">Cancel</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+</div>

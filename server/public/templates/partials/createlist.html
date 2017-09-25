@@ -1,0 +1,28 @@
+﻿<div ng-controller="genlistCtrl" ng-click="" style="margin-top:60px" >
+		<div id="res"></div>
+<div class="wrapper">
+	<div class="">
+		<div class="alert alert-success" ng-show="showSuccessAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button>
+		     <strong>{{successTextAlert}}</strong>
+		</div>
+		<div class="alert alert-danger" ng-show="showFailureAlert">
+		     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button>
+		     <strong>{{failureTextAlert}}</strong>
+		</div>
+
+<center>
+		
+			<form method="post"  >
+             
+				<h2 style="color:#2d6ca2;font-size: 24px; ">Generate Text File for images</h2><br>
+				  <button type="submit" class="btn" style="width:150px;color:#fff;background-color:#428bca;border-color:#357ebd"   ng-click="submitList()">Genereate Text File</button>
+				 
+
+				
+			</form>
+		
+</center>
+</div>
+</div>
+</div>

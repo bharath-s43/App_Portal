@@ -1,0 +1,32 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;\red0\green0\blue0;
+\red255\green255\blue255;\red255\green255\blue255;\red255\green255\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;\csgenericrgb\c0\c0\c0;\cssrgb\c0\c0\c0\c98824;\csgray\c0;
+\csgray\c100000;\cssrgb\c100000\c100000\c100000;\cssrgb\c100000\c100000\c100000;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww17100\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 Steps to launch project on Google Cloud - \
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+1. SSH login on google cloud VM instance \'91\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 meanstack-applause-vm\kerning1\expnd0\expndtw0 \outl0\strokewidth0 \'92\
+	a. Using web interface - \
+		console.cloud.google.com\
+	b. From terminal - \
+\CocoaLigature0 		gcloud compute --project "applause-dev" ssh --zone "us-central1-f" "meanstack-applause-vm\'94\CocoaLigature1 \
+2. sudo su\
+3. \cf4 \cb5 \CocoaLigature0 cd /opt/applause_backend_portal/server/\cf2 \cb1 \CocoaLigature1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\AppleTypeServices\AppleTypeServicesF65539 \cf2 \expnd0\expndtw0\kerning0
+4. rm -rf public\AppleTypeServices \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf2 5. git pull\
+6. \AppleTypeServices\AppleTypeServicesF65539 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec7 cp -rf public/* /opt/bitnami/apache2/htdocs/\
+7. rm -rf public\
+8. \AppleTypeServices \cf4 \cb5 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 ln -s /opt/bitnami/apache2/htdocs/ public\
+9. netstat -ntpl | grep 6001\
+10. kill -9 <process ID>\
+11. nohup node app &\
+12. /opt/bitnami/ctlscript.sh restart apache}

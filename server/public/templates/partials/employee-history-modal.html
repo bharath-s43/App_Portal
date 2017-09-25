@@ -1,0 +1,78 @@
+ <!-- The actual modal template, just a bit o bootstrap -->
+         <div class="modal fade" data-backdrop="static" data-keyboard="false" style="margin-top:60px">
+          <div class="modal-dialog">
+          <div class="col-xs-9 col-md-11 pull-md-3 workArea" data-example-id="" >
+            <div class="modal-content">
+              <div class="modal-header" align="center">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Employee History</h4>
+              </div>
+              <div class="modal-body">
+			<form name="employeeForm" style="overflow: scroll;text-align: left;">
+					<div class="form-group row">
+					  <label for="cname" class="col-xs-3 col-form-label">Customer</label>
+					  <div class="col-xs-9">
+					   <label for="fname" class="col-xs-9 col-form-label" ng-model="rowData.custId" style="text-align: left;">{{rowData.custId.name}}</label>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="bname" class="col-xs-3 col-form-label">Brand</label>
+					  <div class="col-xs-9">
+					   <label for="bname" class="col-xs-9 col-form-label" ng-model="rowData.brandId.name" style="text-align: left;">{{rowData.brandId.name}}</label>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="lname" class="col-xs-3 col-form-label">Location</label>
+					  <div class="col-xs-9">
+					  	 <label for="fname" class="col-xs-9 col-form-label" ng-model="rowData.locationId.lname" style="text-align: left;">{{rowData.locationId.lname}}</label>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="empName" class="col-xs-3 col-form-label">Employee Name</label>
+					  <div class="col-xs-9">
+					  	 <label for="ename" class="col-xs-9 col-form-label" ng-model="rowData.fullName.full" style="text-align: left;">{{rowData.fullName.full}}</label>
+					  </div>
+					</div>
+					<div class="form-group row">
+					  <label for="empId" class="col-xs-3 col-form-label">Employee ID</label>
+					  <div class="col-xs-9">
+					  	 <label for="empId" class="col-xs-9 col-form-label" ng-model="rowData.employeeId" style="text-align: left;">{{rowData.employeeId}}</label>
+					  </div>
+					</div>
+
+					<div class="table-responsive">
+						<table class="table table-bordered table-hover"  ng-if="historyResult.length > 0" style="padding: 1%;">
+						  <thead>
+						    <tr style="background-color:grey;">
+						      <th style="text-align:center;">No.</th>
+						      <th style="text-align:center;">Attribute</th>
+						      <th style="text-align:center;">Old Value</th>
+						      <th style="text-align:center;">New Value</th>
+						      <th style="text-align:center;width: 8%;">Modified Timestamp</th>
+						    </tr>
+						  </thead>
+						  <tbody style="word-wrap: break-word;">
+						    <tr ng-repeat="res in historyResult track by $index">
+						      <td style="width: 8%;">{{$index+1}}</td>
+						      <td>{{res.key}}</td>
+						      <td>{{res.empAttribute === 'startdt' ? (res.oldVal | date:'yyyy/mm/dd') : res.oldVal}}</td>
+						      <td>{{res.empAttribute === 'startdt' ? (res.newVal | date:'yyyy/mm/dd') : res.newVal}}</td>
+						      <td>{{res.updatedAt | date:'yyyy/mm/dd @ h:mma Z'}}</td>
+						    </tr>
+						  </tbody>
+						</table>
+						  <div class="primary" align="center" style="width:100%;" ng-if="historyResult.length < 1">
+							     <strong>No records found.</strong> 
+							</div>
+					</div>
+					
+				</div>
+				</div>
+			</form>
+             					 
+          </div>
+        </div>
+                      </div>
+
+        </div>
+        </div>

@@ -1,0 +1,79 @@
+<div ng-controller="beaconCtrl" ng-click="" ng-init="intiBulk()" style="margin-top:60px">
+<div id="res"></div>
+
+		<div class="headerMessage" >
+				<div class="alert alert-warning" ng-show="showMessageAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showMessageAlert')">×</button> 
+				     <strong>{{messageTextAlert}}</strong> 
+				</div>
+				<div class="alert alert-success" ng-show="showSuccessAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')">×</button> 
+				     <strong>{{successTextAlert}}</strong> 
+				</div>
+				<div class="alert alert-danger" ng-show="showFailureAlert">
+				     <button type="button" class="close" data-ng-click="switchBool('showFailureAlert')">×</button> 
+				     <strong>{{failureTextAlert}}</strong>
+				</div>
+		</div>
+
+<div class="wrapper"> 
+		<div class="">
+		<div class="col-xs-9 col-md-11 pull-md-3" data-example-id="">
+		<h3>Pair Beacons Bulk</h3>
+		</div>
+
+		<div ng-show="rootLocation.id" class="col-xs-9 col-md-11 pull-md-3 workArea" data-example-id="" >
+			<form name="beaconForm">	
+				<div >
+					<div class="form-group row">
+					  <label for="logo_img" class="col-xs-3 col-form-label">Bulk Upload</label>
+					  <div class="col-xs-9" style="text-align:left;">
+					  	<label class="custom-file">
+							<input type="file" id="beaconCSV" class="form-control-file  custom-file-input pull-left" title="CSV File for Beacon Pair" onchange="angular.element(this).scope().getFileBinaryData('pair');">
+							<span class="custom-file-control"></span>
+						</label>
+						<a target="_self" ng-href="{{template_pair_link}}" class="btn-sm btn-default btn-list-view pull-right">
+						Download Template
+						</a>
+
+					  </div>
+					</div>
+					<div class="form-group row" style="text-align:left;padding-left:3%;">
+						<p class="text">
+							<h3 style="padding-left: 1%;">Beacon Assign Bulk Upload</h3>
+							<ol>
+								<li>Please upload the file in a given format.</li>
+								<ul>
+									<li>Column A: BeaconID</li>
+									<li>Column B: EmployeeID</li>
+								</ul>
+								<ul>
+									<li>This will unpair beacon from Employee.</li>
+								</ul>
+								<li>
+									No deletion will take place as a part of this utility. Utiliity will only append. If beacon is already paired, utility will return an error with beacon ID.
+								</li>
+							</ol>
+							
+						</p>
+					</div>
+					<div class="form-group row">
+					<br>
+					  <button type="button" class="btn btn-default btn-list-view pull-right" ng-disabled="brandForm.$invalid" ng-click="postAssignDetails('pair')">Save</button>
+					</div>
+					<div id="postErrors" class="form-group row alert alert-warning" style="text-align:left" ng-if="errorsAssign.length">
+						<label class="col-form-label">Warnings: </label>
+						<div class="form-group row" ng-repeat="errors in errorsAssign">
+							<label for="beaconsPair" class="col-xs-3 col-form-label">line {{errors.lineNo}}</label>
+						  	<div class="col-xs-9">
+						    	<label ng-repeat="z in errors.errors">{{z}} <br></label>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>	
+	</div>
+</div>
+
+</div>

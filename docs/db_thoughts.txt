@@ -1,0 +1,40 @@
+Tables
+---------
+customers (Grouped of Customers / Brands / Operators)
+cust_roles (customer defined roles for employees of that customer)
+cust_locations
+cust_employees
+
+users
+user_roles (applause system roles for end users like admin, end consumer)
+otvc (email and phone)
+interactions
+
+user_device details
+
+
+Need to think upon -
+--------------------
+Vendor roles to be included in users or excluded ?
+fbToken and jwt token
+
+
+static tables - 
+---------------
+applause_contents
+country list for specific input fields 
+	1. phone numbers during registration form
+	2. 
+
+ratings
+reasons with category type "well" and "wrong" and constant reason of "others"
+
+
+
+Keywords - 
+-----------
+interactions
+what went bad?
+what went well?
+ratings
+other comments
